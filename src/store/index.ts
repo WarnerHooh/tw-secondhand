@@ -1,5 +1,4 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-// import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import { History } from 'history';
 import thunk from 'redux-thunk';

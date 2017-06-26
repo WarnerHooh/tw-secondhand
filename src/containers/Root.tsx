@@ -11,10 +11,16 @@ import HomePage from './pages/Home/HomePage';
 const history = createHistory();
 const store = storeConfigure(history);
 
-export default () => (
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-           <Route path="/" component={HomePage}/>
-        </ConnectedRouter>
-    </Provider>
-);
+export default class Root extends React.Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <ConnectedRouter history={history}>
+                    <div>
+                        <Route path="/" component={HomePage}/>
+                    </div>
+                </ConnectedRouter>
+            </Provider>
+        );
+    }
+}
