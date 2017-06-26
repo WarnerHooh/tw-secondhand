@@ -17,10 +17,11 @@
     "suppressImplicitAnyIndexErrors": true,
     "experimentalDecorators": true,
     "noUnusedLocals": true,
-    "typeRoots": ["src/typings", "node_modules/@types"]
+    "typeRoots": ["typings", "node_modules/@types"]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "typeings"
   ],
   "exclude": [
     "node_modules",
