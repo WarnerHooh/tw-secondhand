@@ -8,9 +8,11 @@ const loginEpic: Epic<object> = (action$) => action$.thru(select('USER_LOGIN'))
         username: 'admin',
         password: 'admin',
     })))
-    .map(loginResponse => ({
-        type: 'USER_LOGIN_FINISHED',
-    }));
+    .map(loginResponse => (
+        loginResponse
+        ? {type: 'USER_LOGIN_SUC'}
+        : {type: 'USER_LOGIN_FAIL'}
+    ));
 
 export default combineEpics([
     loginEpic,
