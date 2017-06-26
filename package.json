@@ -1,0 +1,37 @@
+{
+  "name": "react-app-ts-jest-most",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "^20.0.1",
+    "@types/node": "^8.0.1",
+    "@types/react": "^15.0.31",
+    "@types/react-dom": "^15.5.0",
+    "@types/react-redux": "^4.4.45",
+    "@types/react-router": "^3.0.12",
+    "@types/react-router-redux": "^4.0.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^3.0.5",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.7.0",
+    "redux-logger": "^3.0.6",
+    "redux-observable": "^0.14.1",
+    "redux-storage": "^4.1.2",
+    "redux-storage-decorator-filter": "^1.1.8",
+    "redux-storage-engine-localstorage": "^1.1.4",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "react-addons-test-utils": "15.4.2",
+    "react-scripts-ts": "2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "jest": "jest"
+  }
+}
