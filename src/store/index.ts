@@ -1,19 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import { History } from 'history';
-import thunk from 'redux-thunk';
-import { createEpicMiddleware } from 'redux-most';
 
 import reducers from './reducers';
-import rootEpic from './epics';
+import middlewares from './middlewares';
 
 const storeConfigure = (history: History) => {
     const reducer = combineReducers(reducers);
-    const historyMiddleware = routerMiddleware(history);
-    const mostMiddleware = createEpicMiddleware(rootEpic);
+    const router = routerMiddleware(history);
     
-    const middlewares = [thunk, historyMiddleware, mostMiddleware];
-    const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
+    const createStoreWithMiddleware = applyMiddleware(router, ...middlewares)(createStore);
     
     return createStoreWithMiddleware(reducer);
 };
