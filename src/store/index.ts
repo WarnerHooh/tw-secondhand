@@ -4,7 +4,7 @@ import { History } from 'history';
 
 import * as storage from 'redux-storage';
 import createEngine from 'redux-storage-engine-localstorage';
-import filter from 'redux-storage-decorator-filter'
+import filter from 'redux-storage-decorator-filter';
 
 import initialState from './initialState';
 import reducers from './reducers';
