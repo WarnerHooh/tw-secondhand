@@ -32,14 +32,14 @@
     "enzyme": "^2.9.1",
     "husky": "^0.14.1",
     "react-addons-test-utils": "15.4.2",
-    "react-scripts-ts": "2.2.0"
+    "react-scripts-ts-tw": "1.0.0"
   },
   "scripts": {
     "prepush": "CI=true npm test",
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject",
-    "cover": "react-scripts-ts test --env=jsdom --coverage"
+    "start": "react-scripts-ts-tw start",
+    "build": "react-scripts-ts-tw build",
+    "test": "react-scripts-ts-tw test --env=jsdom",
+    "eject": "react-scripts-ts-tw eject",
+    "cover": "react-scripts-ts-tw test --env=jsdom --coverage"
   }
 }
