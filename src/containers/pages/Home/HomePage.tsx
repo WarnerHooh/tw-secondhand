@@ -21,13 +21,13 @@ const HomePage = (props: HomePageProps<object>) => {
                 <h2>Welcome to React</h2>
             </div>
             <p className="App-intro">
-                To get started, edit <code>src/App.tsx</code> and save to reload. {user.name}
-                <button
-                    onClick={() => dispatch(userLogin({username: 'admin', password: 'admin'}))}
-                >
-                    Login and get User Name
-                </button>
+                To get started, edit <code>src/App.tsx</code> and save to reload.
             </p>
+            <p>{user.name ? `User Name: ${user.name}` : 'No User Name.'}</p>
+
+            <button onClick={() => dispatch(userLogin({username: 'admin', password: 'admin'}))}>
+                Login and get User Name
+            </button>
             <p>
                 <button onClick={() => dispatch(push('about-us'))}>Go to About Us</button>
             </p>

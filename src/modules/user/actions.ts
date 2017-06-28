@@ -8,13 +8,13 @@ export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGIN_SUC = 'USER_LOGIN_SUC';
 export const USER_LOGIN_FAIL = 'USER_LOGIN_FAIL';
 
-export const userLogin = (user: D.UserForLogin): D.UserAction => ({ type: USER_LOGIN_SUC, payload: user });
+export const userLogin = (user: D.UserForLogin): D.UserAction => ({ type: USER_LOGIN, payload: user });
 
 const loginEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(USER_LOGIN))
     .chain((action: D.UserForLogin) => fromPromise(login(action)))
     .map((loginResponse: null | D.User) => (
         loginResponse
-        ? {type: USER_LOGIN_SUC, loginResponse}
+        ? {type: USER_LOGIN_SUC, payload: loginResponse}
         : {type: USER_LOGIN_FAIL}
     ));
 
