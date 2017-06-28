@@ -4,19 +4,25 @@ import { History } from 'history';
 
 import * as storage from 'redux-storage';
 import createEngine from 'redux-storage-engine-localstorage';
+import filter from 'redux-storage-decorator-filter'
 
 import initialState from './initialState';
 import reducers from './reducers';
 import middlewares from './middlewares';
+import { USER_LOGIN_SUC } from '../modules/user/actions';
 
 const storeConfigure = (history: History) => {
     const reducer = storage.reducer(combineReducers(reducers));
     const router = routerMiddleware(history);
 
     // bump up storage version if state structure change
-    const engine = createEngine('myApp-0.0.1');
+    const engine = filter(createEngine('myApp-0.0.1'), [
+        'user',
+    ]);
+
     const storeMiddleware = storage.createMiddleware(engine, [], [
-    // White list actions, will not save anything if leave blank here
+        // White list actions, will save everything if leave blank here
+        USER_LOGIN_SUC,
     ]);
 
     const createStoreWithMiddleware = applyMiddleware(router, storeMiddleware, ...middlewares)(createStore);
