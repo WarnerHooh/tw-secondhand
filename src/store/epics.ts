@@ -1,19 +1,7 @@
-import { fromPromise } from 'most';
-import { combineEpics, select, Epic } from 'redux-most';
+import { combineEpics } from 'redux-most';
 
-import { login } from '../apis/user';
-
-const loginEpic: Epic<object> = (action$) => action$.thru(select('USER_LOGIN'))
-    .chain(() => fromPromise(login({
-        username: 'admin',
-        password: 'admin',
-    })))
-    .map(loginResponse => (
-        loginResponse
-        ? {type: 'USER_LOGIN_SUC'}
-        : {type: 'USER_LOGIN_FAIL'}
-    ));
+import { epics as userEpic } from '../modules/user/actions';
 
 export default combineEpics([
-    loginEpic,
+    ...userEpic,
 ]);

@@ -8,12 +8,13 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
+    "declaration": false,
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "experimentalDecorators": true,
     "noUnusedLocals": true,
@@ -21,7 +22,7 @@
   },
   "include": [
     "src/**/*",
-    "typeings"
+    "types"
   ],
   "exclude": [
     "node_modules",
