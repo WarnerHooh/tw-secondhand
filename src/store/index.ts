@@ -17,7 +17,7 @@ const storeConfigure = (history: History) => {
 
     // bump up storage version if state structure change
     const engine = filter(createEngine('myApp-0.0.1'), [
-        'user',
+        'user'
     ]);
 
     const storeMiddleware = storage.createMiddleware(engine, [], [
