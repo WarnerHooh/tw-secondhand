@@ -11,7 +11,7 @@ export const USER_LOGIN_FAIL = 'USER_LOGIN_FAIL';
 export const userLogin = (user: D.UserForLogin): D.UserAction => ({ type: USER_LOGIN, payload: user });
 
 const loginEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(USER_LOGIN))
-    .chain((action: D.UserForLogin) => fromPromise(login(action)))
+    .chain((action: D.UserAction) => fromPromise(login(action.payload)))
     .map((loginResponse: null | D.User) => (
         loginResponse
         ? {type: USER_LOGIN_SUC, payload: loginResponse}
