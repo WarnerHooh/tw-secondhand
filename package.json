@@ -44,8 +44,6 @@
     "prepush": "CI=true npm test",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "start": "react-scripts-ts-tw start",
-    "build": "react-scripts-ts-tw build",
     "start-js": "react-scripts-ts-tw start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts-ts-tw build",
