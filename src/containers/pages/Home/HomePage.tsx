@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import { push } from 'react-router-redux';
+// import { push } from 'react-router-redux';
 
 import * as D from '../../../definitions';
-import * as Components from '../../../components';
-import { userLogin } from '../../../modules/user/actions';
+// import { userLogin } from '../../../modules/user/actions';
+
+import { layoutWrapper } from '../../layout';
 
 import './HomePage.css';
 type HomePageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
@@ -13,28 +14,12 @@ type HomePageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
 };
 
 const HomePage = (props: HomePageProps<object>) => {
-    const { dispatch, user } = props;
+    // const { dispatch, user } = props;
     return (
-        <div className="App">
-            <div className="App-header">
-                <Components.Logo />
-                <h2>Welcome to React</h2>
-            </div>
-            <p className="App-intro">
-                To get started, edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <p>{user.name ? `User Name: ${user.name}` : 'No User Name.'}</p>
-
-            <button onClick={() => dispatch(userLogin({username: 'admin', password: 'admin'}))}>
-                Login and get User Name
-            </button>
-            <p>
-                <button onClick={() => dispatch(push('about-us'))}>Go to About Us</button>
-            </p>
-        </div>
+        <div>list of products</div>
     );
 };
 
-export default connect(
-    (state: D.RootState<object>) => ({user: state.user})
-)(HomePage);
+export default layoutWrapper(connect(
+  (state: D.RootState<object>) => ({user: state.user})
+)(HomePage));
