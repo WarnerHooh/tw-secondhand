@@ -8,6 +8,8 @@ if (process.env.NODE_ENV === 'development') {
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+
+import './styles/normalize.css';
 import './index.css';
 
 ReactDOM.render(
