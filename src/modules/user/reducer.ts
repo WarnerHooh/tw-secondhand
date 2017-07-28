@@ -1,17 +1,19 @@
 import * as D from '../../definitions';
 import * as Redux from 'redux';
+import userStorage from '../../storage/user';
 
 const initialState: D.UserState = {
-    name: '',
+    name: ''
 };
 
-const userReducer: Redux.Reducer<D.UserState> = (state: D.UserState, action: D.UserAction): D.UserState => {
+const userReducer: Redux.Reducer<D.UserState> = (state: D.UserState, action: D.UserSucAction): D.UserState => {
     state = state || initialState;
     switch (action.type) {
         case 'USER_LOGIN_SUC':
+            userStorage.setUser(action.payload);
             return {
                 ...state,
-                ...action.payload,
+                name: action.payload.username
             };
         default:
     }

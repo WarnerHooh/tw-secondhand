@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import 'isomorphic-fetch';
 
 if (process.env.NODE_ENV === 'development') {
-  require('./apis/mocks');
+  // require('./apis/mocks');
 }
 
 import App from './App';
