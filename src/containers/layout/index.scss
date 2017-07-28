@@ -1,0 +1,57 @@
+$image-size: 30px;
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .App-header {
+
+  }
+
+  .App-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #FFE95A;
+
+
+    .App-Nav {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .Nav-item {
+        width: 25%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        &.selected {
+          background-color: white;
+        }
+
+        img {
+          width: $image-size;
+        }
+
+        &.icon-home img {
+          position: relative;
+          top: 20%;
+        }
+
+        &.icon-plus {
+          width: $image-size;
+          height: $image-size;
+          background-color: white;
+          border-radius: 20px;
+          padding: 5px;
+        }
+      }
+    }
+
+  }
+}
