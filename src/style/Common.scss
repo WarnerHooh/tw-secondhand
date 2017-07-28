@@ -1,0 +1,30 @@
+@import './base.scss';
+
+.ico-close:before {
+	content: '\2716'
+}
+
+.input {
+  min-height: 30px;
+  border: none;
+  border-bottom: solid 1px $grey;
+  font-size: large;
+}
+
+.base-btn {
+  border: none;
+  border-radius: 0.3em;
+  min-width: 15em;
+  min-height: 2.5em;
+}
+
+.btn {
+  @extend .base-btn;
+   background-color: $yellow;
+}
+
+.dis-btn {
+  @extend .base-btn;
+  background-color: $lightGrey;
+  color: $grey;
+}
