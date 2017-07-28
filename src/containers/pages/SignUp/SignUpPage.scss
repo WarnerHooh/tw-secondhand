@@ -1,0 +1,62 @@
+.sign-up {
+	display: flex;
+	flex-wrap: wrap;
+
+	.avator,
+	.username,
+	.password,
+	.confirm-password,
+	.signup-button {
+		width: 100%;
+	}
+
+	.avator {
+		display: flex;
+		justify-content: center;
+		margin: 40px 0;
+
+		img {
+			height: 70px;
+		}
+	}
+
+  .sign-up-content {
+    margin: 0 20px;
+    width: 100%;
+  }
+
+	.username,
+	.password,
+	.confirm-password {
+		border: 0;
+		border-bottom: 1px solid #d1d1d1;
+		margin-top: 30px;
+		font-size: 14px;
+
+		&:focus {
+			outline: 0;
+		}
+	}
+
+  .error-input {
+    margin: 5px 0;
+    color: red;
+    font-size: 12px;
+
+  }
+
+	.signup-button {
+		font-size: 16px;
+	    margin-top: 30px;
+	    padding: 10px;
+	    border: 1px;
+	    border-radius: 5px;
+	    background-color: #fae05e;
+
+	    &:focus {
+	    	outline: 0;
+	    }
+	}
+
+}
+
