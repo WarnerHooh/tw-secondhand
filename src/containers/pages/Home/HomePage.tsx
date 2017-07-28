@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-// import { push } from 'react-router-redux';
 
 import * as D from '../../../definitions';
 // import { userLogin } from '../../../modules/user/actions';

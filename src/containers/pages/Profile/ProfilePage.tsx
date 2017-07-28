@@ -3,13 +3,15 @@ import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { push } from 'react-router-redux';
 
-const AboutUsPage = (props: DispatchProp<object> & RouteComponentProps<object>) => (
+import { layoutWrapper } from '../../layout';
+
+const ProfilePage = (props: DispatchProp<object> & RouteComponentProps<object>) => (
   <div>
-    <h2>About Us</h2>
+    <h2>About me</h2>
     <p>
       <button onClick={() => props.dispatch(push('/'))}>Go Back to Home</button>
     </p>
   </div>
 );
 
-export default connect()(AboutUsPage);
+export default layoutWrapper(connect()(ProfilePage));

@@ -4,7 +4,6 @@ import { RouteComponentProps } from 'react-router';
 import { push } from 'react-router-redux';
 
 import * as D from '../../definitions';
-// import * as Components from '../../components';
 
 import './index.css';
 
@@ -20,8 +19,11 @@ type LayoutProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
 
 const Layout = (props: LayoutProps<object>) => {
   const { dispatch, children, location } = props;
-  const isSelected = location.pathname === '/';
-  const selectedClass = isSelected ? 'selected ' : '';
+  const isHomeSelected = location.pathname === '/';
+  const isMeSelected = location.pathname === '/profile';
+  const homeClass = isHomeSelected ? 'selected ' : '';
+  const meClass = isMeSelected ? 'selected ' : '';
+
   return (
     <div className="App">
       <div className="App-header">
@@ -32,13 +34,13 @@ const Layout = (props: LayoutProps<object>) => {
       </div>
       <div className="App-footer">
         <div className="App-Nav">
-          <span onClick={() => dispatch(push('/'))}  className={selectedClass + 'Nav-item icon-home'}>
+          <span onClick={() => dispatch(push('/'))}  className={homeClass + 'Nav-item icon-home'}>
             <img src={homeIcon} alt="home icon"/>
           </span>
           <span className="Nav-item icon-plus">
             <img src={upIcon} alt="plus icon"/>
           </span>
-          <span onClick={() => dispatch(push('about-us'))} className="Nav-item icon-me">
+          <span onClick={() => dispatch(push('profile'))} className={meClass + 'Nav-item icon-me'}>
             <img src={meIcon} alt="person icon"/>
           </span>
         </div>
