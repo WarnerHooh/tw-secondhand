@@ -2,6 +2,8 @@ import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { push } from 'react-router-redux';
+import Modal from '../modal';
+import * as modalAction from '../../modules/modal/action';
 
 import * as D from '../../definitions';
 
@@ -40,11 +42,21 @@ const Layout = (props: LayoutProps<object>) => {
           <span className="Nav-item icon-plus">
             <img src={upIcon} alt="plus icon"/>
           </span>
-          <span onClick={() => dispatch(push('profile'))} className={meClass + 'Nav-item icon-me'}>
+          <span
+            onClick={() => {
+              dispatch(push('profile'));
+              dispatch(modalAction.show({
+                id: '1',
+                anchor: '#signInModal'
+              }));
+            }}
+            className={meClass + 'Nav-item icon-me'}>
             <img src={meIcon} alt="person icon"/>
           </span>
         </div>
       </div>
+
+      <Modal />
     </div>
   );
 };

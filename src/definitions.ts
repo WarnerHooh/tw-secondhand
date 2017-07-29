@@ -45,6 +45,11 @@ export interface ProductImg {
   img: object;
 }
 
+export interface Modal {
+    id: string;
+    anchor: string;
+}
+
 // ACTION CREATORS
 
 
@@ -66,14 +71,20 @@ export interface QuerySucAction extends GeneralAction {
     payload?: ProductsState;
 }
 
+export interface ModalAction extends GeneralAction {
+    payload?: Modal;
+}
+
 // STATES
 export type AppState = App;
 export type UserState = User;
 export type ProductsState = Array<Product>;
+export type ModalState = Array<Modal>;
 
 export interface RootState<S> {
     user?: UserState;
     app?: AppState;
     router?: ReactRouter.RouteComponentProps<S>;
     products?: ProductsState;
+    modal?: ModalState;
 }
