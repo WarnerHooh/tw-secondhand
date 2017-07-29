@@ -52,6 +52,9 @@ export interface ProductImg {
 export interface GeneralAction extends Redux.Action {
     payload?: object;
 }
+export interface GeneralStringAction extends Redux.Action {
+    payload?: string;
+}
 export interface UserAction extends GeneralAction {
     payload?: UserForLogin;
 }

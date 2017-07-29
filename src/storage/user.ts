@@ -9,7 +9,6 @@ function setUser(user: D.UserProfile) {
 
 function removeUser() {
   window.localStorage.removeItem(USER_STORAGE_KEY);
-
   return Promise.resolve(null);
 }
 
@@ -19,7 +18,6 @@ function getUserSync() {
 
 function getUser() {
   const user = getUserSync();
-
   return user ? Promise.resolve(user) : Promise.reject('Could not find user');
 }
 

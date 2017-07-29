@@ -29,7 +29,7 @@ const HomePage = (props: HomePageProps<object>) => {
             );
           })
         }
-        <button onClick={() => dispatch(userLogin({username: 'testuser', password: '123456'}))}>login</button><br/>
+        <button onClick={() => dispatch(userLogin({username: 'zenglei', password: '123'}))}>login</button><br/>
         <button onClick={() => dispatch(getProducts())}>get available products</button>
         <p>Hello {user.name}</p>
       </div>

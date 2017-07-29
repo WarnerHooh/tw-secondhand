@@ -15,6 +15,12 @@ const userReducer: Redux.Reducer<D.UserState> = (state: D.UserState, action: D.U
                 ...state,
                 name: action.payload.username
             };
+        case 'USER_LOGOUT_SUC':
+            userStorage.removeUser();
+            return {
+                ...state,
+                name: ''
+            };
         default:
     }
     return state;
