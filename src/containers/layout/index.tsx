@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import { push } from 'react-router-redux';
 import Modal from '../modal';
 import * as modalAction from '../../modules/modal/action';
+import { v4 as uuid } from 'uuid';
 
 import * as D from '../../definitions';
 
@@ -46,7 +47,7 @@ const Layout = (props: LayoutProps<object>) => {
             onClick={() => {
               dispatch(push('profile'));
               dispatch(modalAction.show({
-                id: '1',
+                id: uuid(),
                 anchor: '#signInModal'
               }));
             }}
