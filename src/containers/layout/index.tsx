@@ -29,9 +29,6 @@ const Layout = (props: LayoutProps<object>) => {
 
   return (
     <div className="App">
-      <div className="App-header">
-        <h2>Welcome to React</h2>
-      </div>
       <div className="App-content content-wrapper">
         {children}
       </div>

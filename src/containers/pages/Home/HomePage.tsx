@@ -19,7 +19,7 @@ const HomePage = (props: HomePageProps<object>) => {
 
   return (
       <div>
-        <h3>list of products</h3>
+        <h3>精选</h3>
         {
           products.map((product) => {
             return (
