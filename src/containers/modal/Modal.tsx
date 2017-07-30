@@ -24,7 +24,7 @@ const Modal = (props: ModalProps<object>) => {
       { modal.map((m, i) => {
         if (m.anchor === anchor) {
           return (
-            <div className={`modal-container modal-weight-${i + 1}`} key={`${anchor}${i}`}>
+            <div className={`modal-container modal-weight-${i + 1}`} key={`${m.id}`}>
               <div className="modal-header">
               <span
                 className="modal-close"
@@ -34,7 +34,7 @@ const Modal = (props: ModalProps<object>) => {
               </span>
               </div>
               <div className="modal-content">
-                <ModalComponent />
+                <ModalComponent {...m.passProps} />
               </div>
             </div>
           );

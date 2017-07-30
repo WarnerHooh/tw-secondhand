@@ -48,6 +48,7 @@ export interface ProductImg {
 export interface Modal {
     id: string;
     anchor: string;
+    passProps?: object;
 }
 
 // ACTION CREATORS

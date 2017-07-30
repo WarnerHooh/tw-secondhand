@@ -45,7 +45,8 @@ const Layout = (props: LayoutProps<object>) => {
               dispatch(push('profile'));
               dispatch(modalAction.show({
                 id: uuid(),
-                anchor: '#signInModal'
+                anchor: '#signInModal',
+                passProps: {}
               }));
             }}
             className={meClass + 'Nav-item icon-me'}>
