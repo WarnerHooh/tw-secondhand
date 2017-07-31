@@ -8,9 +8,7 @@ export const login = (user: D.UserForLogin): Promise<D.UserProfile> =>
   });
 
 export const logout = (): Promise<string> =>
-  fetchApi('/users/logout', {
-    method: 'GET',
-  });
+  fetchApi('/users/logout');
 
 export const register = (user: D.UserForLogin): Promise<string> =>
   fetchApi('/users/register', {

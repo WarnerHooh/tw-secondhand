@@ -1,10 +1,10 @@
 import * as D from '../definitions';
 import { fetchApi } from './utils';
 
-export const create = (user: D.ProductForCreate): Promise<D.Product> =>
+export const create = (product: D.ProductForCreate): Promise<D.Product> =>
   fetchApi('/products/create', {
     method: 'POST',
-    body: JSON.stringify(user),
+    body: JSON.stringify(product),
   });
 
 export const uploadImg = (img: D.ProductImg): Promise<string> =>
@@ -15,19 +15,13 @@ export const uploadImg = (img: D.ProductImg): Promise<string> =>
   });
 
 export const queryAvailable = (): Promise<Array<D.Product>> =>
-  fetchApi('/products/', {
-    method: 'GET',
-  });
+  fetchApi('/products/');
 
 export const queryOwned = (): Promise<Array<D.Product>> =>
-  fetchApi('/products/owned', {
-    method: 'GET',
-  });
+  fetchApi('/products/owned');
 
 export const queryBought = (): Promise<Array<D.Product>> =>
-  fetchApi('/products/bought', {
-    method: 'GET',
-  });
+  fetchApi('/products/bought');
 
 export const buy = (productId: string): Promise<D.Product> =>
   fetchApi(`/products/buy?${productId}`, {

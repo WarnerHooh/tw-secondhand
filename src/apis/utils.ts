@@ -2,11 +2,12 @@ import userStorage from '../storage/user';
 
 const baseUrl = 'http://secondhand.leanapp.cn';
 
-export const fetchApi = (serviceUrl, options) => {
+export const fetchApi = (serviceUrl, options?) => {
   const url = `${baseUrl}${serviceUrl}`;
   const token = userStorage.getToken();
 
   const headers = new Headers({
+    method: 'GET',
     Accept: 'application/json',
     'Content-Type': 'application/json',
     ...(token ? { 'sessionToken': token } : {}),
