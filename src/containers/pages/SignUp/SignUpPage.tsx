@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import './SignUpPage.css';
+import { Input } from '../../../components';
 
 const avator = require('./avator.png');
 
@@ -14,17 +15,17 @@ interface State {
   confirmPasswordValid: boolean;
 }
 
-class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentProps<object>, State>{
-  constructor(props:any) {
+class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentProps<object>, State> {
+  constructor(props: DispatchProp<object> & RouteComponentProps<object>) {
     super(props);
-    this.state={
+    this.state = {
       username: '',
       password: '',
       confirmPassword: '',
       usernameValid: true,
       passwordValid: true,
       confirmPasswordValid: true
-    }
+    };
   }
 
   inputValidation() {
@@ -35,26 +36,26 @@ class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentPr
         confirmPasswordValid: true,
     };
 
-    if (this.state.username == '') {
+    if (this.state.username === '') {
       state.usernameValid = false;
     }
-    if (this.state.password == '' || !(/^[a-zA-Z0-9]{0,12}$/.test(this.state.password))) {
+    if (this.state.password === '' || !(/^[a-zA-Z0-9]{0,12}$/.test(this.state.password))) {
       state.passwordValid = false;
     }
 
-    if (this.state.confirmPassword == '' || this.state.confirmPassword != this.state.password) {
+    if (this.state.confirmPassword === '' || this.state.confirmPassword !== this.state.password) {
       state.confirmPasswordValid = false;
     }
 
-    if(state.usernameValid == true && state.passwordValid == true && state.confirmPasswordValid == true) {
-      alert("Perfect, we will create an account for you");
+    if (state.usernameValid === true && state.passwordValid === true && state.confirmPasswordValid === true) {
+      alert('Perfect, we will create an account for you');
     }
 
     this.setState(state);
   }
 
-  changeState(stateType, value) {
-    this.setState({[stateType]: value});
+  onChangeState = (name) => (e) => {
+    this.setState({[name]: e.target.value});
   }
 
   render() {
@@ -66,17 +67,17 @@ class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentPr
           <img src={avator} />
         </div>
         <div className="sign-up-content">
-          <input placeholder="用户名" className="username" onChange={(e)=>{this.changeState('username', e.target.value);}}/>
+          <Input placeholder="用户名" className="username" onChange={this.onChangeState('username')}/>
           {usernameValid ? '' : <p className="error-input">Please enter your username</p>}
-          <input placeholder="密码" className="password" onChange={(e)=>{this.changeState('password', e.target.value);}}/>
+          <Input placeholder="密码" type="password" className="password" onChange={this.onChangeState('password')}/>
           {passwordValid ? '' : <p className="error-input">Please enter valid password</p>}
-          <input placeholder="确认密码" className="confirm-password" onChange={(e)=>{this.changeState('confirmPassword', e.target.value);}}/>
+          <Input placeholder="确认密码" className="confirm-password" onChange={this.onChangeState('confirmPassword')}/>
           {confirmPasswordValid ? '' : <p className="error-input">Please confirm the password is same as above one</p>}
           {/* <Button name="注册" color="#123451" className="signup-button" />*/}
-          <button className="signup-button" onClick={()=>{this.inputValidation();}}>注册</button>
+          <button className="signup-button" onClick={() => { this.inputValidation(); }}>注册</button>
         </div>
       </div>
-    )
+    );
   }
 }
 
