@@ -24,9 +24,9 @@ export interface UserForLogin {
     password: string;
 }
 
-interface Person {
+export interface Person {
   username: string;
-  projectId: string;
+  objectId: string;
 }
 
 export interface Product {
