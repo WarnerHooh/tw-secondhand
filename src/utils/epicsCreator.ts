@@ -1,12 +1,12 @@
 import { fromPromise } from 'most';
 import { select } from 'redux-most';
 
-export default (type, asyncFn) => (action$, { dispatch }) => {
+export default (type, asyncFn, sucCallback?: Function|null, failCallback?: Function|null) => (action$, store) => {
   let isError = false;
 
   return action$.thru(select(type))
     .chain(action => {
-      dispatch({type: `START`});
+      store.dispatch({type: `START`});
 
       return fromPromise(
         asyncFn(action.payload).catch((e) => {
@@ -16,6 +16,12 @@ export default (type, asyncFn) => (action$, { dispatch }) => {
       );
     })
     .map(response => {
+      if (!isError && sucCallback) {
+        sucCallback(store);
+      } else if (isError && failCallback) {
+        failCallback(store);
+      }
+
       return !isError
         ? {type: `${type}_SUC`, payload: response}
         : {type: `${type}_FAIL`, payload: response};
