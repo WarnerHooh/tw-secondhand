@@ -5,7 +5,7 @@ import * as D from '../../definitions';
 
 import { login, logout } from '../../apis/user';
 
-import userStorage from '../../storage/user';
+import userStorage from '../../utils/storage';
 
 export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGIN_SUC = 'USER_LOGIN_SUC';
@@ -45,3 +45,4 @@ export const epics: Array<Epic<D.GeneralAction>> = [
   loginEpic,
   logoutEpic
 ];
+

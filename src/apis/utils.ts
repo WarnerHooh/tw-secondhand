@@ -1,4 +1,4 @@
-import userStorage from '../storage/user';
+import userStorage from '../utils/storage';
 
 const baseUrl = 'http://secondhand.leanapp.cn';
 
@@ -18,11 +18,18 @@ export const fetchApi = (serviceUrl, options?) => {
     ...options,
   };
 
+  let status;
+
   return fetch(url, finalConfig)
     .then(response => {
-      if (response.status < 400) {
-        return response.json();
+      status = response.status;
+      return response.json();
+    }).then(json => {
+      if (status < 400) {
+        return json;
       }
-      throw response;
+      throw json;
+    }, ({message}) => {
+      throw {message};
     });
 };

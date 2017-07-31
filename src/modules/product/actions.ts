@@ -1,8 +1,10 @@
-import { fromPromise } from 'most';
-import { select, Epic } from 'redux-most';
+// import { fromPromise } from 'most';
+import { Epic } from 'redux-most';
 
 import * as D from '../../definitions';
 import { queryAvailable, queryOwned , queryBought } from '../../apis/products';
+
+import epicCreator from '../../utils/epicsCreator';
 
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCTS_SUC = 'GET_PRODUCTS_SUC';
@@ -20,29 +22,35 @@ export const getProducts = (): D.GeneralAction => ({ type: GET_PRODUCTS });
 export const getOwnedProducts = (): D.GeneralAction => ({ type: GET_OWNED });
 export const getBoughtProducts = (): D.GeneralAction => ({ type: GET_BOUGHT });
 
-const queryAvailableEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(GET_PRODUCTS))
-  .chain((action: D.GeneralAction) => fromPromise(queryAvailable()))
-  .map((queryResponse: null | Array<D.Product>) => (
-    queryResponse
-      ? {type: GET_PRODUCTS_SUC, payload: queryResponse}
-      : {type: GET_PRODUCTS_FAIL}
-  ));
+// const queryAvailableEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(GET_PRODUCTS))
+//   .chain((action: D.GeneralAction) => fromPromise(queryAvailable()))
+//   .map((queryResponse: null | Array<D.Product>) => (
+//     queryResponse
+//       ? {type: GET_PRODUCTS_SUC, payload: queryResponse}
+//       : {type: GET_PRODUCTS_FAIL}
+//   ));
+//
+// const queryOwnedEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(GET_OWNED))
+//   .chain((action: D.GeneralAction) => fromPromise(queryOwned()))
+//   .map((queryResponse: null | Array<D.Product>) => (
+//     queryResponse
+//       ? {type: GET_OWNED_SUC, payload: queryResponse}
+//       : {type: GET_OWNED_FAIL}
+//   ));
+//
+// const queryBoughtEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(GET_BOUGHT))
+//   .chain((action: D.GeneralAction) => fromPromise(queryBought()))
+//   .map((queryResponse: null | Array<D.Product>) => (
+//     queryResponse
+//       ? {type: GET_BOUGHT_SUC, payload: queryResponse}
+//       : {type: GET_BOUGHT_FAIL}
+//   ));
 
-const queryOwnedEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(GET_OWNED))
-  .chain((action: D.GeneralAction) => fromPromise(queryOwned()))
-  .map((queryResponse: null | Array<D.Product>) => (
-    queryResponse
-      ? {type: GET_OWNED_SUC, payload: queryResponse}
-      : {type: GET_OWNED_FAIL}
-  ));
+const queryAvailableEpic: Epic<D.GeneralAction> = epicCreator(GET_PRODUCTS, queryAvailable);
 
-const queryBoughtEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(GET_BOUGHT))
-  .chain((action: D.GeneralAction) => fromPromise(queryBought()))
-  .map((queryResponse: null | Array<D.Product>) => (
-    queryResponse
-      ? {type: GET_BOUGHT_SUC, payload: queryResponse}
-      : {type: GET_BOUGHT_FAIL}
-  ));
+const queryOwnedEpic: Epic<D.GeneralAction> = epicCreator(GET_OWNED, queryOwned);
+
+const queryBoughtEpic: Epic<D.GeneralAction> = epicCreator(GET_BOUGHT, queryBought);
 
 export const epics: Array<Epic<D.GeneralAction>> = [
   queryAvailableEpic,
