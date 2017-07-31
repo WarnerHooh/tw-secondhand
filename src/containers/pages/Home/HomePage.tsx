@@ -33,7 +33,7 @@ class HomePage extends React.Component<HomePageProps<object>> {
       </div>
     );
   }
-};
+}
 
 export default layoutWrapper(connect(
   (state: D.RootState<object>) => ({

@@ -7,17 +7,17 @@ $img-size: 140px;
   height: $img-size;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   margin-top: 15px;
+  line-height: 0.8;
 
   img {
     width: $img-size;
     height: $img-size;
+    margin-right: 15%;
   }
 
   div {
     text-align: left;
-    margin-right: 20%;
 
     .price {
       color: $color-orange;
@@ -29,7 +29,7 @@ $img-size: 140px;
       margin-right: 10px;
     }
 
-    .owner {
+    .owner, .buyer {
       display: flex;
       align-items: center;
     }

@@ -49,7 +49,8 @@ const Layout = (props: LayoutProps<object>) => {
                 passProps: {}
               }));
             }}
-            className={meClass + 'Nav-item icon-me'}>
+            className={meClass + 'Nav-item icon-me'}
+          >
             <img src={meIcon} alt="person icon"/>
           </span>
         </div>
