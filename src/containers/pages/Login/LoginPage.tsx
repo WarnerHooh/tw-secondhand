@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as modalAction from '../../../modules/modal/action';
 import { v4 as uuid } from 'uuid';
 import { Input, Button } from '../../../components';
-
+import { userLogin } from '../../../modules/user/actions';
 import * as D from '../../../definitions';
 
 import './LoginPage.css';
@@ -30,9 +30,13 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
            };
         }
 
-    public handleLogin = () => {
-      const {dispatch} = this.props;
-      dispatch(modalAction.show({id: uuid(), anchor: '#signUpModal'}));
+    public handleLogin = (name, pass) => () => {
+      const { dispatch } = this.props;
+      dispatch(userLogin({
+        username: name,
+        password: pass
+      }));
+      dispatch(modalAction.dismiss());
     }
 
     public handleSignUp = () => {
@@ -48,14 +52,22 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
       return (
             <div className="login">
                 <div className="login-header">
-                    <span>请登录</span>
+                    <h3>请登录</h3>
                 </div>
                 <div className="login-main">
                   <img src= {loginImg} className="login-img" />
                   <Input type="text" className="input" placeholder="用户名" onChange={this.handleChange('username')}/>
-                  <Input type="text" className="input" placeholder="密码"  onChange={this.handleChange('password')}/>
-                  <Button className="dis-btn" onClick={this.handleLogin} text="登录" />
-                  <Button className="btn" onClick={this.handleSignUp} text="免费注册" />
+                  <Input type="password" className="input" placeholder="密码"  onChange={this.handleChange('password')}/>
+                  <Button
+                      className="dis-btn"
+                      onClick={this.handleLogin(this.state.username, this.state.password)}
+                      text="登录"
+                  />
+                  <Button
+                      className="btn"
+                      onClick={this.handleSignUp}
+                      text="免费注册"
+                  />
                 </div>
             </div>
        );

@@ -2,9 +2,9 @@ import * as React from 'react';
 import './Button.css';
 
 interface ButtonProps {
-   className?: string;
-   onClick?: any;
-   text?: string;
+   className ?: string;
+   onClick ?: () => void;
+   text ?: string;
 }
 
 export default (props: ButtonProps) => (
