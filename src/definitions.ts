@@ -24,13 +24,18 @@ export interface UserForLogin {
     password: string;
 }
 
+interface Person {
+  username: string;
+  projectId: string;
+}
+
 export interface Product {
   name: string;
   price: string;
   img: string;
   description: string;
-  owner: Object;
-  buyer?: Object;
+  owner: Person;
+  buyer?: Person;
   objectId: string;
 }
 

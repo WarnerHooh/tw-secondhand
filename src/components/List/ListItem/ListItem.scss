@@ -1,0 +1,37 @@
+@import '../../../styles/variable.scss';
+
+$img-size: 140px;
+
+.ListItem {
+  width: 100%;
+  height: $img-size;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  img {
+    width: $img-size;
+    height: $img-size;
+  }
+
+  div {
+    text-align: left;
+    margin-right: 20%;
+
+    .price {
+      color: $color-orange;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .owner {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

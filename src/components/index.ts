@@ -1,1 +1,7 @@
-export { default as Logo } from './Logo/Logo';
+import Logo from './Logo/Logo';
+import List from './List/List';
+
+export {
+  Logo,
+  List,
+};
