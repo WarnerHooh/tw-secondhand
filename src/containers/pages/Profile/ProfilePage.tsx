@@ -3,15 +3,39 @@ import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { push } from 'react-router-redux';
 
+import * as D from '../../../definitions';
+
 import { layoutWrapper } from '../../layout';
 
-const ProfilePage = (props: DispatchProp<object> & RouteComponentProps<object>) => (
-  <div>
-    <h2>About me</h2>
+import { userLogout } from '../../../modules/user/actions';
+
+import './ProfilePage.css';
+
+type ProfilePageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
+  user: D.UserState,
+};
+
+const avatar = require('../../../styles/assets/login.png');
+
+const ProfilePage = (props: ProfilePageProps<object>) => (
+  <div className="Profile">
+    <h3>个人信息</h3>
+    <p className="Info">
+      <img src={avatar} alt="avatar"/>
+      <span>{props.user.name}</span>
+    </p>
     <p>
-      <button onClick={() => props.dispatch(push('/'))}>Go Back to Home</button>
+      <button onClick={() => props.dispatch(push('/bought'))}>已买宝贝</button>
+    </p>
+    <p>
+      <button onClick={() => props.dispatch(push('/owned'))}>出售宝贝</button>
+    </p>
+    <p>
+      <button onClick={() => props.dispatch(userLogout())}>退出登录</button>
     </p>
   </div>
 );
 
-export default layoutWrapper(connect()(ProfilePage));
+export default layoutWrapper(connect((state: D.RootState<object>) => ({
+  user: state.user,
+}))(ProfilePage));

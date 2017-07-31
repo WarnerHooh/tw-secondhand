@@ -1,0 +1,21 @@
+.login {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   .login-header {
+
+   }
+
+   .login-img {
+      height: 150px;
+      width: 150px;
+   }
+
+   .login-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+   }
+}

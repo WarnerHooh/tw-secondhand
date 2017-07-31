@@ -3,22 +3,40 @@ import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import * as D from '../../../definitions';
-// import { userLogin } from '../../../modules/user/actions';
+import { getProducts } from '../../../modules/product/actions';
 
 import { layoutWrapper } from '../../layout';
 
+import { List } from '../../../components/';
+
 import './HomePage.css';
 type HomePageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
-    user: D.UserState,
+    products: D.ProductsState
 };
 
-const HomePage = (props: HomePageProps<object>) => {
-    // const { dispatch, user } = props;
+class HomePage extends React.Component<HomePageProps<object>> {
+  constructor(props: HomePageProps<object>) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getProducts());
+  }
+
+  render() {
+    const { products } = this.props;
+
     return (
-        <div>list of products</div>
+      <div>
+        <h3>精选</h3>
+        <List list={products} />
+      </div>
     );
+  }
 };
 
 export default layoutWrapper(connect(
-  (state: D.RootState<object>) => ({user: state.user})
+  (state: D.RootState<object>) => ({
+    products: state.products
+  })
 )(HomePage));

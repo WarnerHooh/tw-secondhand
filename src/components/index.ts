@@ -1,2 +1,9 @@
-export { default as Logo } from './Logo/Logo';
-export { default as Input} from './Input/Input';
+import Logo from './Logo/Logo';
+import List from './List/List';
+import Input from './Input/Input';
+
+export {
+  Logo,
+  List,
+  Input,
+};
