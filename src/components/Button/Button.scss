@@ -1,0 +1,19 @@
+@import '../../styles/variable.scss';
+
+.base-btn {
+  border: none;
+  border-radius: 0.3em;
+  min-width: 15em;
+  min-height: 2.5em;
+}
+
+.btn {
+  @extend .base-btn;
+   background-color: $color-yellow;
+}
+
+.dis-btn {
+  @extend .base-btn;
+  background-color: $color-grey-5;
+  color: $color-grey-3;
+}

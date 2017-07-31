@@ -3,6 +3,7 @@ import * as Redux from 'redux';
 import { connect } from 'react-redux';
 import * as modalAction from '../../../modules/modal/action';
 import { v4 as uuid } from 'uuid';
+import { Input, Button } from '../../../components';
 
 import * as D from '../../../definitions';
 
@@ -29,14 +30,18 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
            };
         }
 
-    public handleSubmit = () => {
-      // alert('submit');
+    public handleLogin = () => {
       const {dispatch} = this.props;
       dispatch(modalAction.show({id: uuid(), anchor: '#signUpModal'}));
     }
 
-    public handleChange(key, value) {
-      this.setState({[key]: value});
+    public handleSignUp = () => {
+      const {dispatch} = this.props;
+      dispatch(modalAction.show({id: uuid(), anchor: '#signUpModal'}));
+    }
+
+    public handleChange = (key) => (e) => {
+      this.setState({[key]: e.target.value});
     }
 
     render() {
@@ -47,10 +52,10 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
                 </div>
                 <div className="login-main">
                   <img src= {loginImg} className="login-img" />
-                  <input type="text" className="input" placeholder="用户名" onChange={(e) => this.handleChange('username', e.target.value)}/>
-                  <input type="text" className="input" placeholder="密码"  onChange={(e) => this.handleChange('password', e.target.value)}/>
-                  <button className="dis-btn" onClick={this.handleSubmit}>  登录 </button>
-                  <button className="btn" onClick={this.handleSubmit}>  免费注册 </button>
+                  <Input type="text" className="input" placeholder="用户名" onChange={this.handleChange('username')}/>
+                  <Input type="text" className="input" placeholder="密码"  onChange={this.handleChange('password')}/>
+                  <Button className="dis-btn" onClick={this.handleLogin} text="登录" />
+                  <Button className="btn" onClick={this.handleSignUp} text="免费注册" />
                 </div>
             </div>
        );
