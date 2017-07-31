@@ -3,25 +3,25 @@ import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import * as D from '../../../definitions';
-import { userLogin } from '../../../modules/user/actions';
-import { getProducts } from '../../../modules/product/actions';
+import { getOwnedProducts } from '../../../modules/product/actions';
+import { goBack } from 'react-router-redux';
 
 import { layoutWrapper } from '../../layout';
 
 import { List } from '../../../components/';
 
-import './HomePage.css';
-type HomePageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
+import './OwnedPage.css';
+type OwnedPageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
     products: D.ProductsState
 };
 
-class HomePage extends React.Component<HomePageProps<object>> {
-  constructor(props: HomePageProps<object>) {
+class OwnedPage extends React.Component<OwnedPageProps<object>> {
+  constructor(props: OwnedPageProps<object>) {
     super(props);
   }
 
   componentDidMount() {
-    this.props.dispatch(getProducts());
+    this.props.dispatch(getOwnedProducts());
   }
 
   render() {
@@ -29,9 +29,9 @@ class HomePage extends React.Component<HomePageProps<object>> {
 
     return (
       <div>
-        <h3>精选</h3>
-        <List list={products} />
-        <button onClick={() => dispatch(userLogin({username: 'zenglei', password: '123'}))}>login</button><br/>
+        <button className="back" onClick={() => dispatch(goBack())}>&larr;</button>
+        <h3>出售宝贝</h3>
+        <List list={products} special={true} />
       </div>
     );
   }
@@ -41,4 +41,4 @@ export default layoutWrapper(connect(
   (state: D.RootState<object>) => ({
     products: state.products
   })
-)(HomePage));
+)(OwnedPage));

@@ -2,7 +2,6 @@ import { fromPromise } from 'most';
 import { select, Epic } from 'redux-most';
 
 import * as D from '../../definitions';
-import * as Redux from 'redux';
 
 import { login, logout } from '../../apis/user';
 
@@ -26,7 +25,7 @@ const loginEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(USER_L
         : {type: USER_LOGIN_FAIL}
     ));
 
-const logoutEpic: Epic<D.GeneralStringAction> = (action$) => action$.thru(select(USER_LOGOUT))
+const logoutEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(USER_LOGOUT))
     .chain((action: D.UserAction) => fromPromise(logout()))
     .map((logoutResponse: null | string) => (
       logoutResponse
@@ -34,7 +33,7 @@ const logoutEpic: Epic<D.GeneralStringAction> = (action$) => action$.thru(select
         : {type: USER_LOGOUT_FAIL}
     ));
 
-export const epics: Array<Epic<Redux.Action>> = [
+export const epics: Array<Epic<D.GeneralAction>> = [
   loginEpic,
   logoutEpic
 ];

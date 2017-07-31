@@ -11,7 +11,9 @@ const icon = require('./user.ico');
 
 export default (props: ListItemProps) => {
   const { name, img, price, owner, buyer } = props.listItem;
-  const content = 'buyer' in props.listItem ? (
+  const isSpecial = props.special;
+  const isBought = 'buyer' in props.listItem;
+  const content = isBought ? (
     <div>
       <p className="buyer">
         <img src={icon} alt="user icon"/>
@@ -32,7 +34,7 @@ export default (props: ListItemProps) => {
         <h3>{name}</h3>
         <p className="price">&#165; {price}</p>
         {
-          !props.special ? (
+          !isSpecial ? (
             <p className="owner">
               <img src={icon} alt="user icon"/>
               <span>{owner.username}</span>
@@ -40,6 +42,9 @@ export default (props: ListItemProps) => {
           ) : (content)
         }
       </div>
+      {
+        isSpecial && isBought ? <div className="mask">&nbsp;</div> : null
+      }
     </div>
   );
 };

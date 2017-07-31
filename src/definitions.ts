@@ -61,11 +61,9 @@ export interface Modal {
 
 // ACTIONS
 export interface GeneralAction extends Redux.Action {
-    payload?: object;
+    payload?: object | string;
 }
-export interface GeneralStringAction extends Redux.Action {
-    payload?: string;
-}
+
 export interface UserAction extends GeneralAction {
     payload?: UserForLogin;
 }

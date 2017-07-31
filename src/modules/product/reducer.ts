@@ -9,6 +9,10 @@ const productReducer: Redux.Reducer<D.ProductsState> =
   switch (action.type) {
     case 'GET_PRODUCTS_SUC':
       return action.payload;
+    case 'GET_OWNED_SUC':
+      return action.payload;
+    case 'GET_BOUGHT_SUC':
+      return action.payload;
     default:
   }
   return state;

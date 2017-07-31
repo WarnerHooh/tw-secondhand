@@ -13,10 +13,12 @@ $img-size: 140px;
   img {
     width: $img-size;
     height: $img-size;
+    margin-left: 5%;
     margin-right: 15%;
   }
 
   div {
+    margin-right: 5%;
     text-align: left;
 
     .price {
@@ -33,5 +35,13 @@ $img-size: 140px;
       display: flex;
       align-items: center;
     }
+  }
+
+  div.mask {
+    position: absolute;
+    width: 100%;
+    height: $img-size;
+    background: $color-grey-4;
+    opacity: 0.8;
   }
 }
