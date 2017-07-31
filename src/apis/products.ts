@@ -14,17 +14,17 @@ export const uploadImg = (img: D.ProductImg): Promise<string> =>
     body: JSON.stringify(img),
   });
 
-export const queryAvailable = (): Promise<D.ProductsState> =>
+export const queryAvailable = (): Promise<Array<D.Product>> =>
   fetchApi('/products/', {
     method: 'GET',
   });
 
-export const queryOwned = (): Promise<D.ProductsState> =>
+export const queryOwned = (): Promise<Array<D.Product>> =>
   fetchApi('/products/owned', {
     method: 'GET',
   });
 
-export const queryBought = (): Promise<D.ProductsState> =>
+export const queryBought = (): Promise<Array<D.Product>> =>
   fetchApi('/products/bought', {
     method: 'GET',
   });

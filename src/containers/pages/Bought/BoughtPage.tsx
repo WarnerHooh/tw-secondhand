@@ -12,7 +12,7 @@ import { List } from '../../../components/';
 
 import './BoughtPage.css';
 type BoughtPageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
-    products: D.ProductsState
+    products: Array<D.Product>
 };
 
 class BoughtPage extends React.Component<BoughtPageProps<object>> {
@@ -39,6 +39,6 @@ class BoughtPage extends React.Component<BoughtPageProps<object>> {
 
 export default layoutWrapper(connect(
   (state: D.RootState<object>) => ({
-    products: state.products
+    products: state.products.bought
   })
 )(BoughtPage));

@@ -72,7 +72,7 @@ export interface UserSucAction extends GeneralAction {
 }
 
 export interface QuerySucAction extends GeneralAction {
-    payload?: ProductsState;
+    payload?: Array<Product>;
 }
 
 export interface ModalAction extends GeneralAction {
@@ -82,7 +82,11 @@ export interface ModalAction extends GeneralAction {
 // STATES
 export type AppState = App;
 export type UserState = User;
-export type ProductsState = Array<Product>;
+export type ProductsState = {
+    available: Array<Product>;
+    owned: Array<Product>;
+    bought: Array<Product>;
+}
 export type ModalState = Array<Modal>;
 
 export interface RootState<S> {

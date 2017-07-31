@@ -12,7 +12,7 @@ import { List } from '../../../components/';
 
 import './OwnedPage.css';
 type OwnedPageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
-    products: D.ProductsState
+    products: Array<D.Product>
 };
 
 class OwnedPage extends React.Component<OwnedPageProps<object>> {
@@ -39,6 +39,6 @@ class OwnedPage extends React.Component<OwnedPageProps<object>> {
 
 export default layoutWrapper(connect(
   (state: D.RootState<object>) => ({
-    products: state.products
+    products: state.products.owned
   })
 )(OwnedPage));

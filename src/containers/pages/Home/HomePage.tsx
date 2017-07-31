@@ -12,7 +12,7 @@ import { List } from '../../../components/';
 
 import './HomePage.css';
 type HomePageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
-    products: D.ProductsState
+    products: Array<D.Product>
 };
 
 class HomePage extends React.Component<HomePageProps<object>> {
@@ -39,6 +39,6 @@ class HomePage extends React.Component<HomePageProps<object>> {
 
 export default layoutWrapper(connect(
   (state: D.RootState<object>) => ({
-    products: state.products
+    products: state.products.available
   })
 )(HomePage));
