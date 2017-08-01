@@ -34,11 +34,13 @@ const loginEpic: Epic<D.GeneralAction> = epicCreator(USER_LOGIN, login, (store, 
   });
 });
 
-const logoutEpic: Epic<D.GeneralAction> = epicCreator(USER_LOGOUT, logout, (store) => {
+const logoutCallback = (store) => {
   userStorage.removeUser().then(() => {
     store.dispatch(push('/'));
   });
-});
+};
+
+const logoutEpic: Epic<D.GeneralAction> = epicCreator(USER_LOGOUT, logout, logoutCallback, logoutCallback);
 
 export const epics: Array<Epic<D.GeneralAction>> = [
   registerEpic,
