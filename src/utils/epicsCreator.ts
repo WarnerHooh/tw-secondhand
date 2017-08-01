@@ -8,7 +8,7 @@ export default (type, asyncFn, sucCallback?: Function|null, failCallback?: Funct
   return action$.thru(select(type))
     .chain(action => {
       originalAction = action;
-      store.dispatch({type: `START`});
+      store.dispatch({type: `START`, meta: {asyncPhase: 'START'}});
 
       return fromPromise(
         asyncFn(action.payload)
@@ -30,7 +30,7 @@ export default (type, asyncFn, sucCallback?: Function|null, failCallback?: Funct
       }
 
       return !isError
-        ? {type: `${type}_SUC`, payload: response}
-        : {type: `${type}_FAIL`, payload: response};
+        ? {type: `${type}_SUC`, payload: response, meta: {asyncPhase: 'SUCCESS'}}
+        : {type: `${type}_FAIL`, payload: response, meta: {asyncPhase: 'FAILED'}};
     });
 };
