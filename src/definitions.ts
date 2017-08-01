@@ -51,6 +51,12 @@ export interface ProductForCreate {
   description: string;
 }
 
+export interface ProductForBuy {
+  buyer: Person;
+  objectId: string;
+  updatedAt: string;
+}
+
 export interface ProductImg {
   img: object;
 }
@@ -78,6 +84,10 @@ export interface UserSucAction extends GeneralAction {
 
 export interface QuerySucAction extends GeneralAction {
     payload?: Array<Product>;
+}
+
+export interface  BuySucActtion extends GeneralAction {
+    payload?: ProductForBuy;
 }
 
 export interface ModalAction extends GeneralAction {
