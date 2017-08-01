@@ -3,6 +3,7 @@ import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import './SignUpPage.css';
 import { Input } from '../../../components';
+import { userRegister } from '../../../modules/user/actions';
 
 const avator = require('./avator.png');
 
@@ -48,7 +49,11 @@ class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentPr
     }
 
     if (state.usernameValid === true && state.passwordValid === true && state.confirmPasswordValid === true) {
-      alert('Perfect, we will create an account for you');
+      const { dispatch } = this.props;
+      dispatch(userRegister({
+        username: state.username,
+        password: state.password
+      }));
     }
 
     this.setState(state);
@@ -71,7 +76,12 @@ class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentPr
           {usernameValid ? '' : <p className="error-input">Please enter your username</p>}
           <Input placeholder="密码" type="password" className="password" onChange={this.onChangeState('password')}/>
           {passwordValid ? '' : <p className="error-input">Please enter valid password</p>}
-          <Input placeholder="确认密码" className="confirm-password" onChange={this.onChangeState('confirmPassword')}/>
+          <Input
+            placeholder="确认密码"
+            type="password"
+            className="confirm-password"
+            onChange={this.onChangeState('confirmPassword')}
+          />
           {confirmPasswordValid ? '' : <p className="error-input">Please confirm the password is same as above one</p>}
           {/* <Button name="注册" color="#123451" className="signup-button" />*/}
           <button className="signup-button" onClick={() => { this.inputValidation(); }}>注册</button>

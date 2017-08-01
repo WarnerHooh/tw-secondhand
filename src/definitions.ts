@@ -19,6 +19,11 @@ export interface UserProfile {
     sessionToken: string;
 }
 
+export interface UserForRegister {
+  username: string;
+  password: string;
+}
+
 export interface UserForLogin {
     username: string;
     password: string;
