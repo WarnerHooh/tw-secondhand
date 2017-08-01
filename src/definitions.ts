@@ -29,6 +29,10 @@ export interface UserForLogin {
     password: string;
 }
 
+export interface MetaForLogin {
+  referer: string;
+}
+
 export interface Person {
   username: string;
   objectId: string;
@@ -77,6 +81,7 @@ export interface GeneralAction extends Redux.Action {
 
 export interface UserAction extends GeneralAction {
     payload?: UserForLogin;
+    meta?: MetaForLogin;
 }
 export interface UserSucAction extends GeneralAction {
     payload?: UserProfile;

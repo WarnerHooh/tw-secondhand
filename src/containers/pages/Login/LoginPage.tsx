@@ -14,6 +14,7 @@ const loginImg = require('../../../styles/assets/login.png');
 
 interface LoginProps {
   dispatch?: Redux.Dispatch<object>;
+  referer?: string;
 }
 
 interface LoginState {
@@ -31,12 +32,12 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
         }
 
     public handleLogin = (name, pass) => () => {
-      const { dispatch } = this.props;
+      const { dispatch, referer } = this.props;
       dispatch(userLogin({
         username: name,
         password: pass
-      }));
-      dispatch(modalAction.dismiss());
+      }, {referer: referer}));
+      // dispatch(modalAction.dismiss());
     }
 
     public handleSignUp = () => {

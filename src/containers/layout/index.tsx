@@ -58,7 +58,9 @@ const Layout = (props: LayoutProps<object>) => {
                 dispatch(modalAction.show({
                   id: uuid(),
                   anchor: '#signInModal',
-                  passProps: {}
+                  passProps: {
+                    referer: '#releaseModal'
+                  }
                 }));
               }
             }}
@@ -76,7 +78,9 @@ const Layout = (props: LayoutProps<object>) => {
                 dispatch(modalAction.show({
                   id: uuid(),
                   anchor: '#signInModal',
-                  passProps: {}
+                  passProps: {
+                    referer: '/profile'
+                  }
                 }));
               }
             }}
