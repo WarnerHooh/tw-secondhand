@@ -24,6 +24,6 @@ export const queryBought = (): Promise<Array<D.Product>> =>
   fetchApi('/products/bought');
 
 export const buy = (productId: string): Promise<D.Product> =>
-  fetchApi(`/products/buy?${productId}`, {
+  fetchApi(`/products/buy/${productId}`, {
     method: 'PUT',
   });
