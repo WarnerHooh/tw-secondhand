@@ -24,12 +24,14 @@ export const fetchApi = (serviceUrl, options?) => {
     .then(response => {
       status = response.status;
       return response.json();
-    }).then(json => {
-      if (status < 400) {
-        return json;
-      }
-      throw json;
-    }, ({message}) => {
-      throw {message};
-    });
+    }).then(
+      json => {
+        if (status < 400) {
+          return json;
+        }
+        throw json;
+      },
+      ({message}) => {
+        throw {message};
+      });
 };

@@ -23,7 +23,8 @@ type LayoutProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
 const Layout = (props: LayoutProps<object>) => {
   const { dispatch, children, location, user } = props;
   const isHomeSelected = location.pathname === '/';
-  const isMeSelected = location.pathname === '/profile';
+  const isMeSelected = location.pathname === '/profile'
+    || location.pathname === '/owned' || location.pathname === '/bought';
   const homeClass = isHomeSelected ? 'selected ' : '';
   const meClass = isMeSelected ? 'selected ' : '';
 
@@ -34,10 +35,18 @@ const Layout = (props: LayoutProps<object>) => {
       </div>
       <div className="App-footer">
         <div className="App-Nav">
-          <span onClick={() => dispatch(push('/'))} className={homeClass + 'Nav-item icon-home'}>
+          <span
+            className={homeClass + 'Nav-item icon-home'}
+            onClick={() => {
+              if (!isHomeSelected) {
+                dispatch(push('/'));
+              }
+            }}
+          >
             <img src={homeIcon} alt="home icon"/>
           </span>
           <span
+            className="Nav-item icon-plus"
             onClick={() => {
               if (user.name) {
                 dispatch(modalAction.show({
@@ -53,14 +62,16 @@ const Layout = (props: LayoutProps<object>) => {
                 }));
               }
             }}
-            className="Nav-item icon-plus"
           >
             <img src={upIcon} alt="plus icon"/>
           </span>
           <span
+            className={meClass + 'Nav-item icon-me'}
             onClick={() => {
               if (user.name) {
-                dispatch(push('profile'));
+                if (!isMeSelected) {
+                  dispatch(push('profile'));
+                }
               } else {
                 dispatch(modalAction.show({
                   id: uuid(),
@@ -69,7 +80,6 @@ const Layout = (props: LayoutProps<object>) => {
                 }));
               }
             }}
-            className={meClass + 'Nav-item icon-me'}
           >
             <img src={meIcon} alt="person icon"/>
           </span>
