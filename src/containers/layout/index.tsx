@@ -2,9 +2,10 @@ import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { push } from 'react-router-redux';
-import Modal from '../modal';
-import * as modalAction from '../../modules/modal/action';
 import { v4 as uuid } from 'uuid';
+import Modal from '../modal';
+import Loader from '../../components/Loader';
+import * as modalAction from '../../modules/modal/action';
 
 import * as D from '../../definitions';
 
@@ -91,6 +92,7 @@ const Layout = (props: LayoutProps<object>) => {
       </div>
 
       <Modal />
+      <Loader />
     </div>
   );
 };

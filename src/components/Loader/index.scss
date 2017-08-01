@@ -1,0 +1,59 @@
+@import "../../styles/variable.scss";
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0.0);
+  } 50% {
+      transform: scale(1.0);
+    }
+}
+
+.loader-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  flex-direction: column;
+  justify-content: center;
+
+  display: none;
+  z-index: -1;
+
+  &.active {
+    display: flex;
+    z-index: 100;
+  }
+
+  .loader-main {
+    width: 60px;
+    height: 60px;
+
+    position: relative;
+    margin: 100px auto;
+
+    .loader-bounce {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: $color-yellow;
+      opacity: 0.6;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      animation: bounce 1.8s infinite ease-in-out;
+
+      &.loader-bounce2 {
+        animation-delay: -0.8s;
+      }
+    }
+  }
+}
+
+
+
+

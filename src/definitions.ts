@@ -115,4 +115,5 @@ export interface RootState<S> {
     router?: ReactRouter.RouteComponentProps<S>;
     products?: ProductsState;
     modal?: ModalState;
+    loader?: boolean;
 }
