@@ -4,15 +4,16 @@ import * as D from '../../../definitions';
 
 interface ListItemProps {
   listItem: D.Product;
-  special: boolean;
+  isSpecial?: boolean;
+  handleClick?: Function;
 }
 
 const icon = require('./user.ico');
 
 export default (props: ListItemProps) => {
-  const { name, img, price, owner, buyer } = props.listItem;
-  const isSpecial = props.special;
-  const isBought = 'buyer' in props.listItem;
+  const { listItem, isSpecial, handleClick } = props;
+  const { name, img, price, owner, buyer } = listItem;
+  const isBought = 'buyer' in listItem;
   const content = isBought ? (
     <div>
       <p className="buyer">
@@ -28,7 +29,14 @@ export default (props: ListItemProps) => {
   );
 
   return (
-    <div className="ListItem">
+    <div
+      className="ListItem"
+      onClick={() => {
+        if (handleClick) {
+          handleClick(listItem);
+        }
+      }}
+    >
       <img src={img} alt="image"/>
       <div>
         <h3>{name}</h3>

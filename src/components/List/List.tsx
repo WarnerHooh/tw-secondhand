@@ -6,13 +6,19 @@ import ListItem from './ListItem/ListItem';
 
 interface ListProps {
   list: Array<D.Product>;
-  special?: boolean;
+  isSpecial?: boolean;
+  handleClick?: Function;
 }
 
 export default (props: ListProps) => (
   <div className="List-container">
     {props.list.map((listItem, index) => (
-      <ListItem key={listItem.objectId} listItem={listItem} special={props.special || false} />
+      <ListItem
+        key={listItem.objectId}
+        listItem={listItem}
+        isSpecial={props.isSpecial || false}
+        handleClick={props.handleClick}
+      />
     ))}
   </div>
 );

@@ -31,7 +31,7 @@ class OwnedPage extends React.Component<OwnedPageProps<object>> {
       <div>
         <button className="back" onClick={() => dispatch(goBack())}>&larr;</button>
         <h3>出售宝贝</h3>
-        <List list={products} special={true} />
+        <List list={products} isSpecial={true} />
       </div>
     );
   }

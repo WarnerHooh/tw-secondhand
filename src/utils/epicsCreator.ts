@@ -17,7 +17,7 @@ export default (type, asyncFn, sucCallback?: Function|null, failCallback?: Funct
     })
     .map(response => {
       if (!isError && sucCallback) {
-        sucCallback(store);
+        sucCallback(store, response);
       } else if (isError && failCallback) {
         failCallback(store);
       }

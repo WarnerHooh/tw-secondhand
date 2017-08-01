@@ -6,6 +6,8 @@ import Modal from './Modal';
 
 import SignIn from '../pages/Login/LoginPage';
 import SignUp from '../pages/SignUp/SignUpPage';
+import BuyPage from '../pages/Buy/BuyPage';
+import ReleasePage from '../pages/Release/ReleasePage';
 
 import './index.css';
 
@@ -22,6 +24,8 @@ const AppModal = ({modal}: ModalProps<object>) => {
       <div className="App-modal">
         <Modal anchor="#signUpModal" component={SignUp} />
         <Modal anchor="#signInModal" component={SignIn} />
+        <Modal anchor="#buyModal" component={BuyPage} />
+        <Modal anchor="#releaseModal" component={ReleasePage} />
       </div>
     );
 };

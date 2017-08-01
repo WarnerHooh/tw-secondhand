@@ -19,7 +19,7 @@ export const sampleItem: D.Product = {
 };
 
 it('ListItem shallow renders', () => {
-  const wrapper = shallow(<ListItem listItem={sampleItem} special={false} />);
+  const wrapper = shallow(<ListItem listItem={sampleItem} />);
 
   expect(wrapper.find('.ListItem').length).toBe(1);
   expect(wrapper.find('.ListItem > img').length).toBe(1);

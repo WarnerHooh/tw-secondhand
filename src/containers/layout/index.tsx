@@ -21,7 +21,7 @@ type LayoutProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
 };
 
 const Layout = (props: LayoutProps<object>) => {
-  const { dispatch, children, location } = props;
+  const { dispatch, children, location, user } = props;
   const isHomeSelected = location.pathname === '/';
   const isMeSelected = location.pathname === '/profile';
   const homeClass = isHomeSelected ? 'selected ' : '';
@@ -34,20 +34,40 @@ const Layout = (props: LayoutProps<object>) => {
       </div>
       <div className="App-footer">
         <div className="App-Nav">
-          <span onClick={() => dispatch(push('/'))}  className={homeClass + 'Nav-item icon-home'}>
+          <span onClick={() => dispatch(push('/'))} className={homeClass + 'Nav-item icon-home'}>
             <img src={homeIcon} alt="home icon"/>
           </span>
-          <span className="Nav-item icon-plus">
+          <span
+            onClick={() => {
+              if (user.name) {
+                dispatch(modalAction.show({
+                  id: uuid(),
+                  anchor: '#releaseModal',
+                  passProps: {}
+                }));
+              } else {
+                dispatch(modalAction.show({
+                  id: uuid(),
+                  anchor: '#signInModal',
+                  passProps: {}
+                }));
+              }
+            }}
+            className="Nav-item icon-plus"
+          >
             <img src={upIcon} alt="plus icon"/>
           </span>
           <span
             onClick={() => {
-              dispatch(push('profile'));
-              dispatch(modalAction.show({
-                id: uuid(),
-                anchor: '#signInModal',
-                passProps: {}
-              }));
+              if (user.name) {
+                dispatch(push('profile'));
+              } else {
+                dispatch(modalAction.show({
+                  id: uuid(),
+                  anchor: '#signInModal',
+                  passProps: {}
+                }));
+              }
             }}
             className={meClass + 'Nav-item icon-me'}
           >

@@ -3,8 +3,9 @@ import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import * as D from '../../../definitions';
-import { userLogin } from '../../../modules/user/actions';
 import { getProducts } from '../../../modules/product/actions';
+import * as modalAction from '../../../modules/modal/action';
+import { v4 as uuid } from 'uuid';
 
 import { layoutWrapper } from '../../layout';
 
@@ -30,8 +31,18 @@ class HomePage extends React.Component<HomePageProps<object>> {
     return (
       <div>
         <h3>精选</h3>
-        <List list={products} />
-        <button onClick={() => dispatch(userLogin({username: 'zenglei', password: '123'}))}>login</button><br/>
+        <List
+          list={products}
+          handleClick={(listItem) => {
+            dispatch(modalAction.show({
+              id: uuid(),
+              anchor: '#buyModal',
+              passProps: {
+                product: listItem
+              }
+            }));
+          }}
+        />
       </div>
     );
   }
