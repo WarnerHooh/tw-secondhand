@@ -1,0 +1,10 @@
+.pro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+
+  .price:before{
+    content: '\00a5'
+  }
+}

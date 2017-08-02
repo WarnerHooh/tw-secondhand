@@ -7,6 +7,7 @@ import { Button } from '../../../components';
 import { buyProduct } from '../../../modules/product/actions';
 import { v4 as uuid } from 'uuid';
 import * as modalAction from '../../../modules/modal/action';
+import './BuyPage.css';
 
 type BuyPageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
   user: D.UserState;
@@ -32,13 +33,13 @@ class BuyPage extends React.Component<BuyPageProps<object>> {
   render() {
     const { product } = this.props;
     return (
-    <div>
+    <div className="buy">
       <h3>商品详情</h3>
-        <img src={product.img} alt="product"/>
-      <div>
+      <img src={product.img} alt="product"/>
+      <div className="pro">
         <div> {product.name} </div>
-        <div>
-          <p>{product.price}</p>
+        <div className="detail">
+          <p className="price">{product.price}</p>
           <p> {product.owner.username} </p>
         </div>
       </div>
