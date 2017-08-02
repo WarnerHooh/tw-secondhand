@@ -5,6 +5,7 @@ import { push } from 'react-router-redux';
 
 import * as D from '../../../definitions';
 
+import { Button } from '../../../components';
 import { layoutWrapper } from '../../layout';
 
 import { userLogout } from '../../../modules/user/actions';
@@ -24,15 +25,30 @@ const ProfilePage = (props: ProfilePageProps<object>) => (
       <img src={avatar} alt="avatar"/>
       <span>{props.user.name}</span>
     </p>
-    <p>
-      <button onClick={() => props.dispatch(push('/bought'))}>已买宝贝</button>
-    </p>
-    <p>
-      <button onClick={() => props.dispatch(push('/owned'))}>出售宝贝</button>
-    </p>
-    <p>
-      <button onClick={() => props.dispatch(userLogout())}>退出登录</button>
-    </p>
+    {/*<p>*/}
+      {/*<button onClick={() => props.dispatch(push('/bought'))}>已买宝贝</button>*/}
+    {/*</p>*/}
+    {/*<p>*/}
+      {/*<button onClick={() => props.dispatch(push('/owned'))}>出售宝贝</button>*/}
+    {/*</p>*/}
+    {/*<p>*/}
+      {/*<button onClick={() => props.dispatch(userLogout())}>退出登录</button>*/}
+    {/*</p>*/}
+    <Button
+      text="已买宝贝"
+      className="btn"
+      onClick={() => props.dispatch(push('/bought'))}
+    />
+    <Button
+      text="出售宝贝"
+      className="btn"
+      onClick={() => props.dispatch(push('/owned'))}
+    />
+    <Button
+      text="退出登录"
+      className="btn"
+      onClick={() => props.dispatch(userLogout())}
+    />
   </div>
 );
 
