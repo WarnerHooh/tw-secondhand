@@ -55,10 +55,6 @@ export interface ProductForCreate {
   description: string;
 }
 
-export interface ProductImg {
-  img: object;
-}
-
 export interface Modal {
     id: string;
     anchor: string;

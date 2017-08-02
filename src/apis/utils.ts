@@ -2,16 +2,25 @@ import userStorage from '../utils/storage';
 
 const baseUrl = 'http://secondhand.leanapp.cn';
 
-export const fetchApi = (serviceUrl, options?) => {
+export const fetchApi = (serviceUrl, options?, omitContentType?) => {
   const url = `${baseUrl}${serviceUrl}`;
   const token = userStorage.getToken();
 
-  const headers = new Headers({
-    method: 'GET',
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-    ...(token ? { 'sessionToken': token } : {}),
-  });
+  let headers;
+  if (omitContentType) {
+    headers = new Headers({
+      method: 'GET',
+      Accept: 'application/json',
+      ...(token ? { 'sessionToken': token } : {}),
+    });
+  } else {
+    headers = new Headers({
+      method: 'GET',
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      ...(token ? { 'sessionToken': token } : {}),
+    });
+  }
 
   const finalConfig = {
     headers,
