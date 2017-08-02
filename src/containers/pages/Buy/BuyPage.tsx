@@ -1,13 +1,15 @@
 import * as React from 'react';
-import * as Redux from 'redux';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import * as D from '../../../definitions';
 import { Button } from '../../../components';
 import { buyProduct } from '../../../modules/product/actions';
+import { v4 as uuid } from 'uuid';
+import * as modalAction from '../../../modules/modal/action';
+
 type BuyPageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
-  dispatch?: Redux.Dispatch<object>;
+  user: D.UserState;
   product: D.Product;
 };
 
@@ -16,8 +18,15 @@ class BuyPage extends React.Component<BuyPageProps<object>> {
     super(props);
   }
   handleClick = (productId) => () => {
-    const { dispatch } = this.props;
-    dispatch(buyProduct(productId));
+    const { user, dispatch } = this.props;
+    if (user.name) {
+      dispatch(buyProduct(productId));
+    } else {
+      dispatch(modalAction.show({
+        id: uuid(),
+        anchor: '#signInModal',
+      }));
+    }
   }
 
   render() {
@@ -37,7 +46,7 @@ class BuyPage extends React.Component<BuyPageProps<object>> {
        <Button
             text="立即购买"
             className="btn"
-            onClick={this.handleClick(product.owner.objectId)}
+            onClick={this.handleClick(product.objectId)}
        />
     </div>
   );

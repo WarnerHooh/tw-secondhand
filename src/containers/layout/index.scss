@@ -1,17 +1,19 @@
 @import '../../styles/variable.scss';
 
 $image-size: 30px;
+$footer-height: 50px;
 
 .App {
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-bottom: 65px;
 
   .App-footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: $footer-height;
     background-color: $color-yellow;
 
 
