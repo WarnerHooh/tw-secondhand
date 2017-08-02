@@ -14,6 +14,8 @@ type BuyPageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
   product: D.Product;
 };
 
+const icon = require('./user.ico');
+
 class BuyPage extends React.Component<BuyPageProps<object>> {
   constructor(props: BuyPageProps<object>) {
     super(props);
@@ -40,7 +42,10 @@ class BuyPage extends React.Component<BuyPageProps<object>> {
         <div> {product.name} </div>
         <div className="detail">
           <p className="price">{product.price}</p>
-          <p> {product.owner.username} </p>
+          <p className="owner-name">
+            <img src={icon} alt="user icon"/>
+            {product.owner.username}
+          </p>
         </div>
       </div>
        <p> {product.description} </p>

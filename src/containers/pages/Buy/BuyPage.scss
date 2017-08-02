@@ -5,6 +5,14 @@
   align-items: baseline;
 
   .price:before{
-    content: '\00a5'
+    content: '\00a5';
+
+  }
+
+  .owner-name{
+    img {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
