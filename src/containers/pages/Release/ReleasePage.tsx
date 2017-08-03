@@ -58,7 +58,7 @@ class ReleasePage extends React.Component<ReleasePageProps<object>, State> {
     const { imageUrl } = this.props;
     return (
       <div>
-        {imageUrl ? <img className="preview-image" src={imageUrl} /> :
+        {imageUrl.toString() !== "" ? <img className="preview-image" src={imageUrl.toString()} />:
           (<div className="image-upload">
              <label htmlFor="file-input">
                <p className="file-input-text">点击上传图片</p>
@@ -69,7 +69,7 @@ class ReleasePage extends React.Component<ReleasePageProps<object>, State> {
         <form onSubmit={this.handleSubmit(imageUrl)} className="release-form">
           <Input placeholder="商品名称" className="product-name" onChange={this.onChangeState('name')} />
           <Input placeholder="售价￥" className="product-price" onChange={this.onChangeState('price')} />
-          <textarea className="product-description" onChange={this.onChangeState('description')}>添加描述...</textarea>
+          <textarea className="product-description" defaultValue="添加描述..." onChange={this.onChangeState('description')}/>
           <button className="submit-button" type="submit" onClick={this.handleSubmit(imageUrl)}>
             开始出售
           </button>
