@@ -5,6 +5,7 @@ const initialState: D.ProductsState = {
   available: [],
   owned: [],
   bought: [],
+  imageUrl: '',
 };
 
 const productReducer: Redux.Reducer<D.ProductsState> =
@@ -36,6 +37,11 @@ const productReducer: Redux.Reducer<D.ProductsState> =
         available: state.available.filter( product => {
             return product.objectId !== action.payload.objectId;
         }),
+      };
+    case 'UPLOAD_PRODUCT_IMAGE_SUC':
+      return {
+        ...state,
+        imageUrl: action.payload,
       };
     default:
   }

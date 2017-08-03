@@ -1,0 +1,48 @@
+.image-upload {
+  background-color: #faf7f7;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-input-text {
+  padding-top: 20px;
+  color: grey;
+}
+
+.upload-image {
+  height: 100px;
+}
+
+.preview-image {
+  height: 200px;
+}
+
+.release-form {
+  margin: 0 30px;
+}
+
+.product-name,
+.product-price {
+  margin-top: 30px;
+}
+
+.product-description {
+  margin-top: 50px;
+}
+
+.product-description {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid #d1d1d1;
+}
+
+.submit-button {
+  width: 80%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background-color: #fae05e;
+  border: 0;
+  border-radius: 5px;
+}

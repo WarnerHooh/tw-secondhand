@@ -106,6 +106,7 @@ export type ProductsState = {
     available: Array<Product>;
     owned: Array<Product>;
     bought: Array<Product>;
+    imageUrl: String;
 }
 export type ModalState = Array<Modal>;
 
