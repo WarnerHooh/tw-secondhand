@@ -34,16 +34,15 @@ export const getProducts = (): D.GeneralAction => ({ type: GET_PRODUCTS });
 export const getOwnedProducts = (): D.GeneralAction => ({ type: GET_OWNED });
 export const getBoughtProducts = (): D.GeneralAction => ({ type: GET_BOUGHT });
 export const buyProduct = (productId: string): D.GeneralAction => ({ type: BUY_PRODUCT, payload: productId});
-export const uploadProductImage =  (img): D.GeneralAction => ({ type: UPLOAD_PRODUCT_IMAGE, payload: img});
+export const uploadProductImage =  (img: string): D.GeneralAction => ({ type: UPLOAD_PRODUCT_IMAGE, payload: img});
 export const createProduct =
   (product: D.ProductForCreate): D.GeneralAction => ({type: CREATE_PRODUCT, payload: product});
 
-const buySucCallback = (store) => {
-  store.dispatch(push('/'));
-};
 
-const buyFailCallBack = () => {
-  alert('sorry, buy fail!');
+const buySucCallback = (store) => {
+  store.dispatch(dismiss());
+  store.dispatch(getProducts());
+  store.dispatch(push('/'));
 };
 
 const createSucCallback = (store) => {
@@ -52,14 +51,13 @@ const createSucCallback = (store) => {
   store.dispatch(push('/'));
 
 };
-
 const queryAvailableEpic: Epic<D.GeneralAction> = epicCreator(GET_PRODUCTS, queryAvailable);
 
 const queryOwnedEpic: Epic<D.GeneralAction> = epicCreator(GET_OWNED, queryOwned);
 
 const queryBoughtEpic: Epic<D.GeneralAction> = epicCreator(GET_BOUGHT, queryBought);
 
-const buyProductEpic: Epic<D.GeneralAction> = epicCreator(BUY_PRODUCT, buy, buySucCallback, buyFailCallBack);
+const buyProductEpic: Epic<D.GeneralAction> = epicCreator(BUY_PRODUCT, buy, buySucCallback);
 
 const uploadProductImageEpic: Epic<D.GeneralAction> = epicCreator(UPLOAD_PRODUCT_IMAGE, uploadImg);
 

@@ -55,16 +55,6 @@ export interface ProductForCreate {
   description: string;
 }
 
-export interface ProductForBuy {
-  buyer: Person;
-  objectId: string;
-  updatedAt: string;
-}
-
-export interface ProductImg {
-  img: object;
-}
-
 export interface Modal {
     id: string;
     anchor: string;
@@ -91,10 +81,6 @@ export interface QuerySucAction extends GeneralAction {
     payload?: Array<Product>;
 }
 
-export interface  BuySucActtion extends GeneralAction {
-    payload?: ProductForBuy;
-}
-
 export interface ModalAction extends GeneralAction {
     payload?: Modal;
 }
@@ -106,7 +92,7 @@ export type ProductsState = {
     available: Array<Product>;
     owned: Array<Product>;
     bought: Array<Product>;
-    imageUrl: String;
+    imageUrl: Array<Product>;
 }
 export type ModalState = Array<Modal>;
 

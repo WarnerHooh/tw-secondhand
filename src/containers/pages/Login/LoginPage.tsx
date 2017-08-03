@@ -33,11 +33,15 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
 
     public handleLogin = (name, pass) => () => {
       const { dispatch, referer } = this.props;
-      dispatch(userLogin({
-        username: name,
-        password: pass
-      }, {referer: referer}));
-      // dispatch(modalAction.dismiss());
+      dispatch(userLogin(
+        {
+          username: name,
+          password: pass
+        },
+        {
+          referer: referer
+        })
+      );
     }
 
     public handleSignUp = () => {

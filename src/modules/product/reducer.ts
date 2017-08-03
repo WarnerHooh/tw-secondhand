@@ -5,11 +5,11 @@ const initialState: D.ProductsState = {
   available: [],
   owned: [],
   bought: [],
-  imageUrl: '',
+  imageUrl: [],
 };
 
 const productReducer: Redux.Reducer<D.ProductsState> =
-  (state: D.ProductsState, action): D.ProductsState => {
+  (state: D.ProductsState, action: D.QuerySucAction): D.ProductsState => {
   state = state || initialState;
   switch (action.type) {
     case 'GET_PRODUCTS_SUC':
@@ -26,17 +26,6 @@ const productReducer: Redux.Reducer<D.ProductsState> =
       return {
         ...state,
         bought: action.payload,
-      };
-    case 'BUY_PRODUCT_SUC':
-      return {
-        ...state,
-        bought: state.bought.concat(Object.assign(
-                  {},
-                  state.available.find(product => product.objectId === action.payload.objectId),
-                  )),
-        available: state.available.filter( product => {
-            return product.objectId !== action.payload.objectId;
-        }),
       };
     case 'UPLOAD_PRODUCT_IMAGE_SUC':
       return {

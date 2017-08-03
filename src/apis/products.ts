@@ -7,12 +7,19 @@ export const create = (product: D.ProductForCreate): Promise<D.Product> =>
     body: JSON.stringify(product),
   });
 
-export const uploadImg = (img: D.ProductImg): Promise<string> =>
-  fetchApi('/products/upload', {
-    method: 'POST',
-    'Content-Type': 'multipart/form-data',
-    body: JSON.stringify(img),
-  });
+export const uploadImg = (img: File): Promise<string> => {
+  const data = new FormData();
+  data.append('img', img);
+
+  return fetchApi(
+    '/products/upload',
+    {
+      method: 'POST',
+      body: data,
+    },
+    true
+  );
+};
 
 export const queryAvailable = (): Promise<Array<D.Product>> =>
   fetchApi('/products/');
