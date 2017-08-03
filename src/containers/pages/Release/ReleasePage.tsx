@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import { Input } from '../../../components';
+import { Input, Button } from '../../../components';
 import './ReleasePage.css';
 import { uploadProductImage, createProduct } from '../../../modules/product/actions';
 
@@ -64,15 +64,13 @@ class ReleasePage extends React.Component<ReleasePageProps<object>, State> {
                <p className="file-input-text">点击上传图片</p>
                <img src={uploadImage} className="upload-image"/>
              </label>
-            <input id="file-input" className="file-input" type="file" onChange={this.handleImageChange()} />
+            <input id="file-input" className="file-input" type="file" onChange={this.handleImageChange()} accept="image/*"/>
         </div>)}
         <form onSubmit={this.handleSubmit(imageUrl)} className="release-form">
           <Input placeholder="商品名称" className="product-name" onChange={this.onChangeState('name')} />
           <Input placeholder="售价￥" className="product-price" onChange={this.onChangeState('price')} />
           <textarea className="product-description" defaultValue="添加描述..." onChange={this.onChangeState('description')}/>
-          <button className="submit-button" type="submit" onClick={this.handleSubmit(imageUrl)}>
-            开始出售
-          </button>
+          <Button className="submit-button" type="submit" onClick={this.handleSubmit(imageUrl)} text="开始出售" />
         </form>
       </div>
     );
