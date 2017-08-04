@@ -1,4 +1,3 @@
-// import { fromPromise } from 'most';
 import { Epic } from 'redux-most';
 import { push } from 'react-router-redux';
 
@@ -38,30 +37,23 @@ export const uploadProductImage =  (img: string): D.GeneralAction => ({ type: UP
 export const createProduct =
   (product: D.ProductForCreate): D.GeneralAction => ({type: CREATE_PRODUCT, payload: product});
 
-
-const buySucCallback = (store) => {
+const sucCallback = (store) => {
   store.dispatch(dismiss());
   store.dispatch(getProducts());
   store.dispatch(push('/'));
 };
 
-const createSucCallback = (store) => {
-  store.dispatch(dismiss());
-  store.dispatch(getProducts());
-  store.dispatch(push('/'));
-
-};
 const queryAvailableEpic: Epic<D.GeneralAction> = epicCreator(GET_PRODUCTS, queryAvailable);
 
 const queryOwnedEpic: Epic<D.GeneralAction> = epicCreator(GET_OWNED, queryOwned);
 
 const queryBoughtEpic: Epic<D.GeneralAction> = epicCreator(GET_BOUGHT, queryBought);
 
-const buyProductEpic: Epic<D.GeneralAction> = epicCreator(BUY_PRODUCT, buy, buySucCallback);
+const buyProductEpic: Epic<D.GeneralAction> = epicCreator(BUY_PRODUCT, buy, sucCallback);
 
 const uploadProductImageEpic: Epic<D.GeneralAction> = epicCreator(UPLOAD_PRODUCT_IMAGE, uploadImg);
 
-const createProductEpic: Epic<D.GeneralAction> = epicCreator(CREATE_PRODUCT, create, createSucCallback);
+const createProductEpic: Epic<D.GeneralAction> = epicCreator(CREATE_PRODUCT, create, sucCallback);
 
 export const epics: Array<Epic<D.GeneralAction>> = [
   queryAvailableEpic,
