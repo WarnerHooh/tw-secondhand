@@ -11,6 +11,7 @@ import { show, dismiss } from '../modal/action';
 import userStorage from '../../utils/storage';
 
 import * as modalAction from '../../modules/modal/action';
+import { clearProducts } from '../product/actions';
 
 export const USER_REGISTER = 'USER_REGISTER';
 
@@ -57,6 +58,7 @@ const loginEpic: Epic<D.GeneralAction> = epicCreator(USER_LOGIN, login, (store, 
 const logoutCallback = (store) => {
   userStorage.removeUser().then(() => {
     store.dispatch(push('/'));
+    store.dispatch(clearProducts());
   });
 };
 

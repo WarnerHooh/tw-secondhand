@@ -25,15 +25,6 @@ const ProfilePage = (props: ProfilePageProps<object>) => (
       <img src={avatar} alt="avatar"/>
       <span>{props.user.name}</span>
     </p>
-    {/*<p>*/}
-      {/*<button onClick={() => props.dispatch(push('/bought'))}>已买宝贝</button>*/}
-    {/*</p>*/}
-    {/*<p>*/}
-      {/*<button onClick={() => props.dispatch(push('/owned'))}>出售宝贝</button>*/}
-    {/*</p>*/}
-    {/*<p>*/}
-      {/*<button onClick={() => props.dispatch(userLogout())}>退出登录</button>*/}
-    {/*</p>*/}
     <Button
       text="已买宝贝"
       className="btn"

@@ -9,25 +9,21 @@ import { dismiss } from '../modal/action';
 
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCTS_SUC = 'GET_PRODUCTS_SUC';
-export const GET_PRODUCTS_FAIL = 'GET_PRODUCTS_FAIL';
 
 export const GET_OWNED = 'GET_OWNED';
 export const GET_OWNED_SUC = 'GET_OWNED_SUC';
-export const GET_OWNED_FAIL = 'GET_OWNED_FAIL';
 
 export const GET_BOUGHT = 'GET_BOUGHT';
 export const GET_BOUGHT_SUC = 'GET_BOUGHT_SUC';
-export const GET_BOUGHT_FAIL = 'GET_BOUGHT_FAIL';
 
 export const BUY_PRODUCT = 'BUY_PRODUCT';
-export const BUY_PRODUCT_SUC = 'BUY_PRODUCT_SUC';
-export const BUY_PRODUCT_FAIL = 'BUY_PRODUCT_FAIL';
 
 export const CREATE_PRODUCT = 'CREATE_PRODUCT';
-export const CREATE_PRODUCT_SUC = 'CREATE_PRODUCT_SUC';
 
 export const UPLOAD_PRODUCT_IMAGE = 'UPLOAD_PRODUCT_IMAGE';
 export const UPLOAD_PRODUCT_IMAGE_SUC = 'UPLOAD_PRODUCT_IMAGE_SUC';
+
+export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS';
 
 export const getProducts = (): D.GeneralAction => ({ type: GET_PRODUCTS });
 export const getOwnedProducts = (): D.GeneralAction => ({ type: GET_OWNED });
@@ -36,6 +32,8 @@ export const buyProduct = (productId: string): D.GeneralAction => ({ type: BUY_P
 export const uploadProductImage =  (img: string): D.GeneralAction => ({ type: UPLOAD_PRODUCT_IMAGE, payload: img});
 export const createProduct =
   (product: D.ProductForCreate): D.GeneralAction => ({type: CREATE_PRODUCT, payload: product});
+
+export const clearProducts = (): D.UserAction => ({ type: CLEAR_PRODUCTS });
 
 const sucCallback = (store) => {
   store.dispatch(dismiss());
