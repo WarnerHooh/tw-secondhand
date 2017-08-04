@@ -37,23 +37,27 @@ class BuyPage extends React.Component<BuyPageProps<object>> {
     return (
     <div className="buy">
       <h3>商品详情</h3>
-      <img src={product.img} alt="product"/>
+      <div className="pro-img">
+        <img src={product.img} alt="product"/>
+      </div>
       <div className="pro">
         <div> {product.name} </div>
         <div className="detail">
           <p className="price">{product.price}</p>
           <p className="owner-name">
             <img src={icon} alt="user icon"/>
-            {product.owner.username}
+            <span> {product.owner.username} </span>
           </p>
         </div>
       </div>
-       <p> {product.description} </p>
+      <p className="description"> {product.description} </p>
+      <div className="buy-button">
        <Button
             text="立即购买"
             className="btn"
             onClick={this.handleClick(product.objectId)}
        />
+       </div>
     </div>
   );
   }

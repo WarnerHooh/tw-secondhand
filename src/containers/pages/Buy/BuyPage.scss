@@ -1,18 +1,61 @@
-.pro {
+@import '../../../styles/variable.scss';
+
+.buy {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
 
-  .price:before{
-    content: '\00a5';
-
+  .pro-img {
+    width: 90%;
+    img {
+        max-width: 70%;
+    }
   }
 
-  .owner-name{
-    img {
-      width: 20px;
-      height: 20px;
+  .pro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-top: 30px;
+    width: 90%;
+
+    .price {
+      &:before{
+       content: '\00a5';
+       margin-right: 5px;
+       color: #fd9800;
+       font-size: large;
+      }
+
+      text-align: left;
+      color: #fd9800;
+    }
+
+
+    .owner-name{
+      margin-left: -5px;
+      color: $color-grey;
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+
+      .username {
+
+      }
+  }
+}
+  .description {
+    margin: 30px auto;
+  }
+  .buy-button {
+    margin: auto 40px;
+    width: 90%;
+
+    button {
+      width: 60%;
     }
   }
 }

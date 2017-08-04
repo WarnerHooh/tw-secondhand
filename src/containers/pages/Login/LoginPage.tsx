@@ -61,6 +61,7 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
                 </div>
                 <div className="login-main">
                   <img src= {loginImg} className="login-img" />
+                  <div className="login-content">
                   <Input type="text" className="input" placeholder="用户名" onChange={this.handleChange('username')}/>
                   <Input type="password" className="input" placeholder="密码"  onChange={this.handleChange('password')}/>
                   <Button
@@ -73,6 +74,7 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
                       onClick={this.handleSignUp}
                       text="免费注册"
                   />
+                  </div>
                 </div>
             </div>
        );

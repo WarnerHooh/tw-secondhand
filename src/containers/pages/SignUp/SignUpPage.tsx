@@ -67,7 +67,7 @@ class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentPr
     const {usernameValid, passwordValid, confirmPasswordValid} = this.state;
     return (
       <div className="sign-up">
-        <h3>发布宝贝</h3>
+        <h3>注册</h3>
         <div className="avator">
           <img src={avator} />
         </div>
