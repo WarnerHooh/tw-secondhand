@@ -8,7 +8,6 @@ import { userLogin } from '../../../modules/user/actions';
 import * as D from '../../../definitions';
 
 import './LoginPage.css';
-import '../../../styles/common.css';
 
 const loginImg = require('../../../styles/assets/login.png');
 
@@ -65,7 +64,7 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
                   <Input type="text" className="input" placeholder="用户名" onChange={this.handleChange('username')}/>
                   <Input type="password" className="input" placeholder="密码"  onChange={this.handleChange('password')}/>
                   <Button
-                      className="dis-btn"
+                      className="btn"
                       onClick={this.handleLogin(this.state.username, this.state.password)}
                       text="登录"
                   />

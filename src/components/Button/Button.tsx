@@ -10,7 +10,7 @@ interface ButtonProps {
 
 export default (props: ButtonProps) => (
   <button
-    className={props.className ? props.className : 'base-btn'}
+    className={ 'btn ' + props.className}
     onClick={props.onClick}
     type={props.type}
   >

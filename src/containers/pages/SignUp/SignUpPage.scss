@@ -16,11 +16,11 @@
   .username,
   .password,
   .confirm-password {
-    margin-top: 40px;
+    margin: 25px 0;
   }
 
   .sign-up-content {
-    margin: 0 40px;
+    margin: 0 10%;
   }
 
   .error-input {
@@ -32,13 +32,7 @@
 
 	.signup-button {
     width: 100%;
-    font-size: 16px;
-    margin-top: 60px;
-    padding: 10px;
-    border: 1px;
-    border-radius: 5px;
-    background-color: $color-yellow;
-
+    margin: 25px 0;
     &:focus {
       outline: 0;
     }

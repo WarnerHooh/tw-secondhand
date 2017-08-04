@@ -30,7 +30,7 @@ class ReleasePage extends React.Component<ReleasePageProps<object>, State> {
     };
   }
 
-  handleImageChange = () => (e) => {
+  handleImageChange = (e) => {
     e.preventDefault();
     const { dispatch } = this.props;
     dispatch(uploadProductImage(
@@ -69,7 +69,7 @@ class ReleasePage extends React.Component<ReleasePageProps<object>, State> {
               id="file-input"
               className="file-input"
               type="file"
-              onChange={this.handleImageChange()}
+              onChange={this.handleImageChange}
               accept="image/*"
             />
         </div>)}
