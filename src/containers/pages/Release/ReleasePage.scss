@@ -1,5 +1,5 @@
 .image-upload {
-  background-color: #faf7f7;
+  background-color: $color-light-grey;
 }
 
 .file-input {
@@ -20,12 +20,12 @@
 }
 
 .release-form {
-  margin: 0 30px;
+  margin: 0 40px;
 }
 
 .product-name,
 .product-price {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .product-description {
@@ -35,14 +35,14 @@
 .product-description {
   width: 100%;
   min-height: 100px;
-  border: 1px solid #d1d1d1;
+  border: 1px solid $color-grey;
 }
 
 .submit-button {
   width: 80%;
   margin-top: 50px;
   padding: 10px 0;
-  background-color: #fae05e;
+  background-color: $color-yellow;
   border: 0;
   border-radius: 5px;
 }

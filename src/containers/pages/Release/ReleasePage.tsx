@@ -58,13 +58,14 @@ class ReleasePage extends React.Component<ReleasePageProps<object>, State> {
     const { imageUrl } = this.props;
     return (
       <div>
+        <h3>发布宝贝</h3>
         {imageUrl.toString() !== "" ? <img className="preview-image" src={imageUrl.toString()} />:
           (<div className="image-upload">
              <label htmlFor="file-input">
                <p className="file-input-text">点击上传图片</p>
                <img src={uploadImage} className="upload-image"/>
              </label>
-            <input id="file-input" className="file-input" type="file" onChange={this.handleImageChange()} accept="image/*"/>
+            <Input id="file-input" className="file-input" type="file" onChange={this.handleImageChange()} accept="image/*"/>
         </div>)}
         <form onSubmit={this.handleSubmit(imageUrl)} className="release-form">
           <Input placeholder="商品名称" className="product-name" onChange={this.onChangeState('name')} />

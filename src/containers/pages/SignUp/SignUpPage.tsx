@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import './SignUpPage.css';
-import { Input } from '../../../components';
+import { Input, Button } from '../../../components';
 import { userRegister } from '../../../modules/user/actions';
 
 const avator = require('./avator.png');
@@ -67,7 +67,7 @@ class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentPr
     const {usernameValid, passwordValid, confirmPasswordValid} = this.state;
     return (
       <div className="sign-up">
-        {/*<Header name="注册" />*/}
+        <h3>发布宝贝</h3>
         <div className="avator">
           <img src={avator} />
         </div>
@@ -83,8 +83,7 @@ class SignUpPage extends React.Component<DispatchProp<object> & RouteComponentPr
             onChange={this.onChangeState('confirmPassword')}
           />
           {confirmPasswordValid ? '' : <p className="error-input">Please confirm the password is same as above one</p>}
-          {/* <Button name="注册" color="#123451" className="signup-button" />*/}
-          <button className="signup-button" onClick={() => { this.inputValidation(); }}>注册</button>
+          <Button className="signup-button" text="注册" onClick={() => { this.inputValidation(); }}/>
         </div>
       </div>
     );

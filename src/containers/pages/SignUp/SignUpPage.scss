@@ -1,26 +1,23 @@
 .sign-up {
-	display: flex;
-	flex-wrap: wrap;
 
 	.avator {
 		display: flex;
     width: 100%;
 		justify-content: center;
-		margin: 40px 0;
+		margin: 50px 0 30px;
 
 		img {
-			height: 70px;
+			height: 100px;
 		}
 	}
   .username,
   .password,
   .confirm-password {
-    margin-top: 30px;
+    margin-top: 40px;
   }
 
   .sign-up-content {
-    margin: 0 20px;
-    width: 100%;
+    margin: 0 40px;
   }
 
   .error-input {
@@ -33,11 +30,11 @@
 	.signup-button {
     width: 100%;
     font-size: 16px;
-    margin-top: 30px;
+    margin-top: 60px;
     padding: 10px;
     border: 1px;
     border-radius: 5px;
-    background-color: #fae05e;
+    background-color: $color-yellow;
 
     &:focus {
       outline: 0;
