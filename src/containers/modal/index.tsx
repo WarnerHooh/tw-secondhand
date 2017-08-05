@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import * as D from '../../definitions';
 import Modal from './Modal';
@@ -16,18 +17,27 @@ type ModalProps<S> = {
 };
 
 const AppModal = ({modal}: ModalProps<object>) => {
-    if (modal.length === 0) {
-      return null;
-    }
-
-    return (
-      <div className="App-modal">
-        <Modal anchor="#signUpModal" component={SignUp} />
-        <Modal anchor="#signInModal" component={SignIn} />
-        <Modal anchor="#buyModal" component={BuyPage} />
-        <Modal anchor="#releaseModal" component={ReleasePage} />
-      </div>
-    );
+  return (
+    <CSSTransitionGroup
+      transitionName="modal"
+      transitionAppear={false}
+      transitionEnter={false}
+      transitionLeave={true}
+      transitionLeaveTimeout={300}
+      component="div"
+    >
+      {
+        modal.length === 0
+        ? null
+        : (<div className="App-modal">
+            <Modal anchor="#signUpModal" component={SignUp} />
+            <Modal anchor="#signInModal" component={SignIn} />
+            <Modal anchor="#buyModal" component={BuyPage} />
+            <Modal anchor="#releaseModal" component={ReleasePage} />
+          </div>)
+      }
+    </CSSTransitionGroup>
+  );
 };
 
 export default connect(

@@ -8,26 +8,32 @@
   height: 100%;
   background: $color-white;
 
-  .modal-container {
-    position: absolute;
+  .modal-transition {
     width: 100%;
     height: 100%;
-    background: $color-white;
-    position: fixed;
 
-    display: flex;
-    flex-direction: column;
+    .modal-container {
+      width: 100%;
+      height: 100%;
+      background: $color-white;
+      position: fixed;
+      left: 0;
+      top: 0;
 
-    .modal-header {
+      display: flex;
+      flex-direction: column;
 
-      .modal-close {
-        position: absolute;
-        left: 20px;
-        top: 20px;
+      .modal-header {
+
+        .modal-close {
+          position: absolute;
+          left: 20px;
+          top: 20px;
+        }
       }
-    }
 
-    .modal-content {
+      .modal-content {
+      }
     }
   }
 }
@@ -35,5 +41,38 @@
 @for $i from 1 through 10 {
   .modal-weight-#{$i} {
     z-index: $i;
+  }
+}
+
+.modal-appear {
+  opacity: 0.01;
+  transform: translateY(100%);
+
+  &.modal-appear-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .3s ease-in-out;
+  }
+}
+
+.modal-enter {
+  opacity: 0.01;
+  transform: translateY(100%);
+
+  &.modal-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .3s ease-in-out;
+  }
+}
+
+.modal-leave {
+  opacity: 1;
+  transform: translateY(0);
+
+  &.modal-leave-active {
+    opacity: 0.01;
+    transform: translateY(100%);
+    transition: all .3s ease-in-out;
   }
 }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Redux from 'redux';
 import { connect } from 'react-redux';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import * as D from '../../definitions';
 import * as modalAction from '../../modules/modal/action';
@@ -20,7 +21,17 @@ const Modal = (props: ModalProps<object>) => {
   const ModalComponent = component;
 
   return (
-    <div>
+    <CSSTransitionGroup
+      transitionName="modal"
+      transitionAppear={true}
+      transitionAppearTimeout={300}
+      transitionEnter={true}
+      transitionEnterTimeout={300}
+      transitionLeave={true}
+      transitionLeaveTimeout={300}
+      component="div"
+      className="modal-transition"
+    >
       { modal.map((m, i) => {
         if (m.anchor === anchor) {
           return (
@@ -42,7 +53,7 @@ const Modal = (props: ModalProps<object>) => {
           return null;
         }
       })}
-    </div>
+    </CSSTransitionGroup>
   );
 };
 
