@@ -9,6 +9,7 @@ $img-size: 140px;
   flex-direction: row;
   margin-top: 15px;
   line-height: 0.8;
+  overflow: hidden;
 
   img {
     width: $img-size;
