@@ -41,6 +41,7 @@
     "react-addons-test-utils": "15.4.2",
     "react-scripts-ts-tw": "^1.0.7",
     "react-test-renderer": "^15.6.1",
+    "sinon": "^3.0.0",
     "typescript": "2.3.4"
   },
   "scripts": {
