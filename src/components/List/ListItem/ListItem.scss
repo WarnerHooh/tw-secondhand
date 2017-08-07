@@ -7,20 +7,31 @@ $img-size: 140px;
   height: $img-size;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   margin-top: 15px;
   line-height: 0.8;
-  overflow: hidden;
 
-  img {
+  .img-wrapper {
     width: $img-size;
-    margin-left: 5%;
-    margin-right: 15%;
-    align-self: center;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+    img {
+      max-width: $img-size;
+    }
   }
 
-  div {
-    margin-right: 5%;
+  .item-info {
+    width: 150px;
+    height: 80%;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     .price {
       color: $color-orange;

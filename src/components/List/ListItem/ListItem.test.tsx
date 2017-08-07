@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import * as D from '../../../definitions';
+import { spy } from 'sinon';
 
 import ListItem from './ListItem';
 
@@ -18,9 +19,21 @@ export const sampleItem: D.Product = {
   objectId: "5979c4d6a0bb9f0058eb6d69",
 };
 
-it('ListItem shallow renders', () => {
-  const wrapper = shallow(<ListItem listItem={sampleItem} />);
+describe('<ListItem />', () => {
+  it('ListItem shallow renders', () => {
+    const wrapper = shallow(<ListItem listItem={sampleItem} />);
 
-  expect(wrapper.find('.ListItem').length).toBe(1);
-  expect(wrapper.find('.ListItem > img').length).toBe(1);
+    expect(wrapper.find('.ListItem').length).toBe(1);
+    expect(wrapper.find('.img-wrapper > img').length).toBe(1);
+  });
+
+  it('click function should be called when listItem is clicked', () => {
+    const handleClick = spy();
+    const wrapper = shallow(<ListItem listItem={sampleItem} handleClick={handleClick} />);
+
+    wrapper.find('div.ListItem').simulate('click');
+
+    expect(handleClick.calledOnce).toEqual(true);
+  });
+
 });

@@ -37,8 +37,10 @@ export default (props: ListItemProps) => {
         }
       }}
     >
-      <img src={img} alt="image"/>
-      <div>
+      <div className="img-wrapper">
+        <img src={img} alt="image"/>
+      </div>
+      <div className="item-info">
         <h3>{name}</h3>
         <p className="price">&#165; {price}</p>
         {
