@@ -2,7 +2,6 @@ import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { push } from 'react-router-redux';
-import { v4 as uuid } from 'uuid';
 import Modal from '../modal';
 import Loader from '../../components/Loader';
 import * as modalAction from '../../modules/modal/action';
@@ -51,13 +50,11 @@ const Layout = (props: LayoutProps<object>) => {
             onClick={() => {
               if (user.name) {
                 dispatch(modalAction.show({
-                  id: uuid(),
                   anchor: '#releaseModal',
                   passProps: {}
                 }));
               } else {
                 dispatch(modalAction.show({
-                  id: uuid(),
                   anchor: '#signInModal',
                   passProps: {
                     referer: '#releaseModal'
@@ -77,7 +74,6 @@ const Layout = (props: LayoutProps<object>) => {
                 }
               } else {
                 dispatch(modalAction.show({
-                  id: uuid(),
                   anchor: '#signInModal',
                   passProps: {
                     referer: '/profile'

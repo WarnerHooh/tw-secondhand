@@ -56,13 +56,12 @@ export interface ProductForCreate {
 }
 
 export interface Modal {
-    id: string;
+    id?: string;
     anchor: string;
     passProps?: object;
 }
 
 // ACTION CREATORS
-
 
 // ACTIONS
 export interface GeneralAction extends Redux.Action {

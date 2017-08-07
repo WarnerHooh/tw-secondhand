@@ -5,7 +5,6 @@ import { RouteComponentProps } from 'react-router';
 import * as D from '../../../definitions';
 import { Button } from '../../../components';
 import { buyProduct } from '../../../modules/product/actions';
-import { v4 as uuid } from 'uuid';
 import * as modalAction from '../../../modules/modal/action';
 import './BuyPage.css';
 
@@ -26,7 +25,6 @@ class BuyPage extends React.Component<BuyPageProps<object>> {
       dispatch(buyProduct(productId));
     } else {
       dispatch(modalAction.show({
-        id: uuid(),
         anchor: '#signInModal',
       }));
     }

@@ -1,6 +1,5 @@
 import { Epic } from 'redux-most';
 import { push } from 'react-router-redux';
-import { v4 as uuid } from 'uuid';
 import epicCreator from '../../utils/epicsCreator';
 
 import * as D from '../../definitions';
@@ -46,7 +45,6 @@ const loginEpic: Epic<D.GeneralAction> = epicCreator(USER_LOGIN, login, (store, 
         nextAction = push(referer);
       } else if (referer.startsWith('#')) {
         nextAction = show({
-          id: uuid(),
           anchor: referer
         });
       }

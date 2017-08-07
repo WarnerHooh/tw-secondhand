@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as Redux from 'redux';
 import { connect } from 'react-redux';
 import * as modalAction from '../../../modules/modal/action';
-import { v4 as uuid } from 'uuid';
 import { Input, Button } from '../../../components';
 import { userLogin } from '../../../modules/user/actions';
 import * as D from '../../../definitions';
@@ -45,7 +44,7 @@ class LoginPage extends React.Component<LoginProps, LoginState> {
 
     public handleSignUp = () => {
       const {dispatch} = this.props;
-      dispatch(modalAction.show({id: uuid(), anchor: '#signUpModal'}));
+      dispatch(modalAction.show({anchor: '#signUpModal'}));
     }
 
     public handleChange = (key) => (e) => {

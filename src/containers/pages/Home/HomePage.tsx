@@ -5,7 +5,6 @@ import { RouteComponentProps } from 'react-router';
 import * as D from '../../../definitions';
 import { getProducts } from '../../../modules/product/actions';
 import * as modalAction from '../../../modules/modal/action';
-import { v4 as uuid } from 'uuid';
 
 import { layoutWrapper } from '../../layout';
 
@@ -35,7 +34,6 @@ class HomePage extends React.Component<HomePageProps<object>> {
           list={products}
           handleClick={(listItem) => {
             dispatch(modalAction.show({
-              id: uuid(),
               anchor: '#buyModal',
               passProps: {
                 product: listItem
