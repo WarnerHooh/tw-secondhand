@@ -29,7 +29,6 @@ class HomePage extends React.Component<HomePageProps<object>> {
 
     return (
       <div>
-        <h3>精选</h3>
         <List
           list={products}
           handleClick={(listItem) => {
@@ -46,8 +45,11 @@ class HomePage extends React.Component<HomePageProps<object>> {
   }
 }
 
-export default layoutWrapper(connect(
-  (state: D.RootState<object>) => ({
-    products: state.products.available
-  })
-)(HomePage));
+export default layoutWrapper(
+  connect(
+    (state: D.RootState<object>) => ({
+      products: state.products.available
+    })
+  )(HomePage),
+  '精选'
+);

@@ -20,7 +20,6 @@ const avatar = require('../../../styles/assets/login.png');
 
 const ProfilePage = (props: ProfilePageProps<object>) => (
   <div className="Profile">
-    <h3>个人信息</h3>
     <p className="Info">
       <img src={avatar} alt="avatar"/>
       <span>{props.user.name}</span>
@@ -43,6 +42,11 @@ const ProfilePage = (props: ProfilePageProps<object>) => (
   </div>
 );
 
-export default layoutWrapper(connect((state: D.RootState<object>) => ({
-  user: state.user,
-}))(ProfilePage));
+export default layoutWrapper(
+  connect(
+    (state: D.RootState<object>) => ({
+      user: state.user,
+    })
+  )(ProfilePage),
+  '个人信息'
+);

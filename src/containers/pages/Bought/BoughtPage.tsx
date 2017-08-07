@@ -30,15 +30,17 @@ class BoughtPage extends React.Component<BoughtPageProps<object>> {
     return (
       <div>
         <button className="back" onClick={() => dispatch(goBack())}>&larr;</button>
-        <h3>已买宝贝</h3>
         <List list={products} />
       </div>
     );
   }
 }
 
-export default layoutWrapper(connect(
-  (state: D.RootState<object>) => ({
-    products: state.products.bought
-  })
-)(BoughtPage));
+export default layoutWrapper(
+  connect(
+    (state: D.RootState<object>) => ({
+      products: state.products.bought
+    })
+  )(BoughtPage),
+  '已买宝贝'
+);

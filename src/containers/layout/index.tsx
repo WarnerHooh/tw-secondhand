@@ -17,7 +17,8 @@ const meIcon = require('./assets/person.png');
 type LayoutProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
   user: D.UserState,
   location: Object,
-  children: Object
+  children: Object,
+  title: string,
 };
 
 const Layout = (props: LayoutProps<object>) => {
@@ -30,6 +31,9 @@ const Layout = (props: LayoutProps<object>) => {
 
   return (
     <div className="App">
+      <div className="App-header">
+        <h3>{props.title}</h3>
+      </div>
       <div className="App-content content-wrapper">
         {children}
       </div>
@@ -100,10 +104,10 @@ const ConnectedLayout = connect(
   })
 )(Layout);
 
-const layoutWrapper = InnerContent => (
+const layoutWrapper = (InnerContent, title) => (
   function DashboardLayout(props: LayoutProps<object>) {
     return (
-      <ConnectedLayout {...props}>
+      <ConnectedLayout title={title} {...props} >
         <InnerContent {...props} />
       </ConnectedLayout>
     );

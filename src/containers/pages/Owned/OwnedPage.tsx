@@ -30,15 +30,17 @@ class OwnedPage extends React.Component<OwnedPageProps<object>> {
     return (
       <div>
         <button className="back" onClick={() => dispatch(goBack())}>&larr;</button>
-        <h3>出售宝贝</h3>
         <List list={products} isSpecial={true} />
       </div>
     );
   }
 }
 
-export default layoutWrapper(connect(
-  (state: D.RootState<object>) => ({
-    products: state.products.owned
-  })
-)(OwnedPage));
+export default layoutWrapper(
+  connect(
+    (state: D.RootState<object>) => ({
+      products: state.products.owned
+    })
+  )(OwnedPage),
+  '出售宝贝'
+);
