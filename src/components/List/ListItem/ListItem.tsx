@@ -8,7 +8,7 @@ interface ListItemProps {
   handleClick?: Function;
 }
 
-const icon = require('./user.ico');
+const icon = require('../../../styles/assets/user.ico');
 
 export default (props: ListItemProps) => {
   const { listItem, isSpecial, handleClick } = props;

@@ -14,7 +14,7 @@ type BuyPageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
   product: D.Product;
 };
 
-const icon = require('./user.ico');
+const icon = require('../../../styles/assets/user.ico');
 
 class BuyPage extends React.Component<BuyPageProps<object>> {
   constructor(props: BuyPageProps<object>) {
