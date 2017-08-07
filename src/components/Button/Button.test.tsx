@@ -12,7 +12,6 @@ describe('<Button />', () => {
   });
 
   it('click function should be called when button is clicked', () => {
-    // console.log()
     const onButtonClick = spy();
     const wrapper = shallow(<Button onClick={onButtonClick} />);
 

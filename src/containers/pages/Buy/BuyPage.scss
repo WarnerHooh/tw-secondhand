@@ -36,6 +36,9 @@
     .owner-name{
       margin-left: -5px;
       color: $color-grey;
+      display: flex;
+      align-items: center;
+
       img {
         width: 20px;
         height: 20px;
