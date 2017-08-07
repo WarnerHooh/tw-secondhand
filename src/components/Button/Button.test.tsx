@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 import Button from './Button';
 
 describe('<Button />', () => {
@@ -11,16 +11,14 @@ describe('<Button />', () => {
     expect(wrapper.find('button').text()).toEqual('test');
   });
 
-/*
   it('click function should be called when button is clicked', () => {
-    console.log()
-    const onButtonClick = sinon.spy();
+    // console.log()
+    const onButtonClick = spy();
     const wrapper = shallow(<Button onClick={onButtonClick} />);
 
     wrapper.find('button').simulate('click');
 
     expect(onButtonClick.calledOnce).toEqual(true);
-});
-*/
+  });
 
-}
+});
