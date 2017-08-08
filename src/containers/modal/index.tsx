@@ -16,7 +16,7 @@ type ModalProps<S> = {
   modal?: D.ModalState;
 };
 
-const AppModal = ({modal}: ModalProps<object>) => {
+export const AppModal = ({modal = []}: ModalProps<object>) => {
   return (
     <CSSTransitionGroup
       transitionName="modal"

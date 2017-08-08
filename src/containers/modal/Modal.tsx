@@ -15,7 +15,7 @@ type ModalProps<S> = {
   dispatch?: Redux.Dispatch<S>;
 };
 
-const Modal = (props: ModalProps<object>) => {
+export const Modal = (props: ModalProps<object>) => {
   const { anchor, component, modal, dispatch } = props;
 
   const ModalComponent = component;
@@ -62,3 +62,4 @@ export default connect(
     modal: state.modal,
   })
 )(Modal);
+
