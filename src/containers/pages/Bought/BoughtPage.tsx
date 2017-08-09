@@ -36,11 +36,8 @@ class BoughtPage extends React.Component<BoughtPageProps<object>> {
   }
 }
 
-export default layoutWrapper(
-  connect(
-    (state: D.RootState<object>) => ({
-      products: state.products.bought
-    })
-  )(BoughtPage),
-  '已买宝贝'
-);
+export default layoutWrapper('已买宝贝')(connect(
+  (state: D.RootState<object>) => ({
+    products: state.products.bought
+  })
+)(BoughtPage));

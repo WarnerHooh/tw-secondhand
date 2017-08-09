@@ -104,7 +104,7 @@ const ConnectedLayout = connect(
   })
 )(Layout);
 
-const layoutWrapper = (InnerContent, title) => (
+const layoutWrapper = (title) => (InnerContent) => (
   function DashboardLayout(props: LayoutProps<object>) {
     return (
       <ConnectedLayout title={title} {...props} >

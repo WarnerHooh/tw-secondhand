@@ -45,11 +45,8 @@ class HomePage extends React.Component<HomePageProps<object>> {
   }
 }
 
-export default layoutWrapper(
-  connect(
-    (state: D.RootState<object>) => ({
-      products: state.products.available
-    })
-  )(HomePage),
-  '精选'
-);
+export default layoutWrapper('精选')(connect(
+  (state: D.RootState<object>) => ({
+    products: state.products.available
+  })
+)(HomePage));

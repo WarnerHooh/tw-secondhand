@@ -42,11 +42,8 @@ const ProfilePage = (props: ProfilePageProps<object>) => (
   </div>
 );
 
-export default layoutWrapper(
-  connect(
-    (state: D.RootState<object>) => ({
-      user: state.user,
-    })
-  )(ProfilePage),
-  '个人信息'
-);
+export default layoutWrapper('个人信息')(connect(
+  (state: D.RootState<object>) => ({
+    user: state.user,
+  })
+)(ProfilePage));

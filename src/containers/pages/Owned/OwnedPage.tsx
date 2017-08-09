@@ -36,11 +36,8 @@ class OwnedPage extends React.Component<OwnedPageProps<object>> {
   }
 }
 
-export default layoutWrapper(
-  connect(
-    (state: D.RootState<object>) => ({
-      products: state.products.owned
-    })
-  )(OwnedPage),
-  '出售宝贝'
-);
+export default layoutWrapper('出售宝贝')(connect(
+  (state: D.RootState<object>) => ({
+    products: state.products.owned
+  })
+)(OwnedPage));
