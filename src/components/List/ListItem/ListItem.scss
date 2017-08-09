@@ -33,6 +33,14 @@ $img-size: 140px;
     flex-direction: column;
     justify-content: space-around;
 
+    p, div {
+      margin: 0;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
     .price {
       color: $color-orange;
     }
@@ -46,7 +54,7 @@ $img-size: 140px;
     .owner, .buyer {
       display: flex;
       align-items: center;
-      margin-left: -10px;
+      margin-left: -5px;
     }
   }
 

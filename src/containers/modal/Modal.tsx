@@ -62,4 +62,3 @@ export default connect(
     modal: state.modal,
   })
 )(Modal);
-
